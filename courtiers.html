@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Réseau de courtiers Vade · Kinshasa</title>
+<meta name="description" content="Annuaire des courtiers et agences immobilières partenaires de Vade Agency à Kinshasa, vérifiés par Vade.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+@media (max-width:860px){ .book{grid-template-columns:1fr} }
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+.filters select,.filters input{flex:1 1 200px}
+.co h3{margin:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.co .meta{font-size:14px;color:var(--muted)}
+.co .tags{display:flex;flex-wrap:wrap;gap:6px}
+.co .tags span{font-size:13px;padding:4px 9px;border-radius:999px;border:1px solid var(--line)}
+.co .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.co .acts .btn{padding:8px 14px;font-size:14px}
+.ok{background:var(--garden);color:#fff;font:600 11px/1 var(--sans);letter-spacing:.04em;padding:5px 8px;border-radius:6px;text-transform:uppercase}
+.slot{border-style:dashed;justify-content:center;text-align:center;align-items:center;text-decoration:none;color:var(--ink)}
+.slot h3{color:var(--gold)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.why li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.why b{display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 449 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · meublé, dès 114 900 $</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+      </div>
+    </details>
+    <a href="clean-up.html">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Réseau Vade · Kinshasa</div>
+    <h1>Les courtiers <em>partenaires</em> de Vade</h1>
+    <p class="lead">Des courtiers et agences de Kinshasa qui travaillent avec Vade Agency. Chaque partenaire est vérifié par notre équipe avant d'apparaître ici.</p>
+  </section>
+
+  <section>
+    <div class="filters">
+      <select id="f-spec" aria-label="Spécialité"><option value="">Toutes les spécialités</option></select>
+      <select id="f-com" aria-label="Commune"><option value="">Toutes les communes</option></select>
+    </div>
+    <div class="grid" id="liste"></div>
+  </section>
+
+  <section>
+    <h2>Pourquoi rejoindre le réseau</h2>
+    <ul class="why">
+      <li><b>Plus de clients</b>Votre fiche est vue par les acheteurs et la diaspora qui visitent le site Vade.</li>
+      <li><b>Nos projets à proposer</b>Proposez The King Tower, Modern Park et nos autres offres à vos clients, avec partage de commission.</li>
+      <li><b>Badge vérifié</b>Le badge « Vérifié Vade » rassure vos clients sur votre sérieux.</li>
+    </ul>
+  </section>
+
+  <section class="band book" id="rejoindre">
+    <div>
+      <h2>Rejoindre le réseau</h2>
+      <p class="lead" style="font-size:16px">Remplissez ce formulaire : nous vous contactons sur WhatsApp pour vérifier vos informations avant de publier votre fiche. L'inscription est gratuite.</p>
+    </div>
+    <form class="f" id="join-form">
+      <label>Nom ou agence<input id="nom" required autocomplete="organization"></label>
+      <label>Vous êtes
+        <select id="type"><option>Courtier indépendant</option><option>Agence</option></select>
+      </label>
+      <label>Téléphone / WhatsApp<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
+      <label>Commune<input id="commune" required placeholder="Gombe, Ngaliema, Limete…"></label>
+      <label class="full">Spécialités
+        <input id="spec" placeholder="Vente, location, terrains, gestion…">
+      </label>
+      <label class="full">Zones couvertes<input id="zones" placeholder="Ex. Gombe, Ngaliema, Mont-Ngafula"></label>
+      <label class="full"><span><input type="checkbox" id="accord" required> J'accepte que ces informations soient publiées sur le site Vade après vérification.</span></label>
+      <button class="btn primary full" type="submit">Envoyer ma demande sur WhatsApp</button>
+      <div class="out" id="out" hidden></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-e1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">@vadeagency_241192</a></div>
+</div></footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/courtiers.js"></script>
+<script>
+const L = window.COURTIERS || [];
+const liste = document.getElementById("liste"), fs = document.getElementById("f-spec"), fc = document.getElementById("f-com");
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+[...new Set(L.flatMap(c => c.specialites))].sort().forEach(s => fs.add(new Option(s, s)));
+[...new Set(L.map(c => c.commune))].sort().forEach(s => fc.add(new Option(s, s)));
+function render() {
+  const s = fs.value, c = fc.value;
+  const r = L.filter(x => (!s || x.specialites.includes(s)) && (!c || x.commune === c));
+  liste.innerHTML = r.map(x => `<div class="card co">
+    <h3>${esc(x.nom)}${x.verifie ? ' <span class="ok">Vérifié Vade</span>' : ""}</h3>
+    <div class="meta">${esc(x.type)} · ${esc(x.commune)}${x.zones ? " · " + esc(x.zones) : ""}</div>
+    <div class="tags">${x.specialites.map(t => `<span>${esc(t)}</span>`).join("")}</div>
+    <div class="acts">${x.whatsapp ? `<a class="btn primary" href="https://wa.me/${esc(x.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>` : ""}${x.instagram ? `<a class="btn" href="https://www.instagram.com/${esc(x.instagram)}/" target="_blank" rel="noopener">Instagram</a>` : ""}</div>
+  </div>`).join("") + `<a class="card slot" href="#rejoindre"><h3>Votre agence ici</h3><p>Courtier ou agence à Kinshasa ? Rejoignez le réseau Vade, c'est gratuit.</p></a>`;
+}
+fs.onchange = fc.onchange = render; render();
+document.getElementById("join-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const m = `Bonjour Vade Agency, je souhaite rejoindre le réseau de courtiers.\nNom : ${v("nom")}\nType : ${v("type")}\nTéléphone : ${v("tel")}\nCommune : ${v("commune")}\nSpécialités : ${v("spec") || "à préciser"}\nZones : ${v("zones") || "à préciser"}\nJ'accepte la publication après vérification.`;
+  vadeSend(m, document.getElementById("out"));
+});
+</script>
+</body>
+</html>
