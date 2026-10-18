@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La Cité-Jardin de Kinshasa · Visite guidée · Vade Agency</title>
+<meta name="description" content="Visite guidée en ligne de la Cité-Jardin de Kinshasa : rendus 3D, vidéos de chantier et plan d'appartement interactif.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+.tourwrap{display:grid;gap:20px;padding-block:24px 48px}
+header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(28px,4.4vw,46px)/1.05 var(--display);margin:6px 0 0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.by{color:var(--muted);font-size:14px}
+.by b{color:var(--ink)}
+.tour{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:start}
+.tour>*{min-width:0}
+nav ol{list-style:none;margin:0;padding:0;display:grid;gap:4px;counter-reset:s}
+nav button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;color:var(--muted)}
+nav button .n{font:500 12px/28px var(--mono);text-align:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}
+nav button .t{font-weight:600;line-height:1.25}
+nav button .t small{display:block;font-weight:400;font-size:13px}
+nav button:hover{background:var(--surface);color:var(--ink)}
+nav button[aria-current="step"]{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+nav button[aria-current="step"] .n{background:var(--accent);border-color:var(--accent);color:#fff}
+nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stage{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.media{position:relative;border-radius:10px;overflow:hidden;background:#0b0f0d;display:grid;place-items:center;min-height:240px}
+.media video{width:100%;max-height:560px;display:block;object-fit:contain}
+.media .tag{position:absolute;left:10px;top:10px;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.6);color:#fff}
+.media .tag.real{background:var(--garden)}
+.info{display:flex;flex-direction:column;gap:12px;min-width:0}
+.info h2{font:700 26px/1.1 var(--display);margin:0;text-wrap:balance}
+.info p{margin:0;color:var(--ink)}
+.info .note{color:var(--muted);font-size:14px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:14px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:600}
+.ctrl{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+.btn{all:unset;box-sizing:border-box;cursor:pointer;padding:10px 16px;border-radius:999px;font-weight:600;border:1px solid var(--line);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn[disabled]{opacity:.4;cursor:default}
+/* plan */
+.plan{position:relative;width:100%;max-width:720px;aspect-ratio:720/621}
+.plan img{width:100%;height:100%;display:block}
+.plan button{all:unset;position:absolute;cursor:pointer;border-radius:4px;box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .15s, background .15s}
+.plan button:hover,.plan button:focus-visible{box-shadow:inset 0 0 0 2px var(--sun);background:rgba(242,194,48,.18)}
+.plan button[aria-pressed="true"]{box-shadow:inset 0 0 0 3px var(--accent);background:rgba(23,105,201,.22)}
+.rooms{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.rooms td{padding:5px 0;border-bottom:1px solid var(--line)}
+.rooms td:last-child{text-align:right;font-family:var(--mono);font-size:13px}
+.rooms tr.on td{color:var(--accent);font-weight:600}
+.rooms tr{cursor:pointer}
+.total td{font-weight:600;border-bottom:0}
+/* réservation */
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px;background:var(--accent-soft);border-radius:16px;padding:20px}
+.book h2{font:700 24px/1.15 var(--display);margin:0 0 6px}
+.book p{margin:0;color:var(--muted)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:grid;gap:4px;font-size:13px;font-weight:600}
+input,select{font:inherit;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-width:0}
+form .full{grid-column:1/-1}
+.out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
+.legend{font-size:13px;color:var(--muted)}
+@media (max-width:900px){
+  .tour{grid-template-columns:1fr}
+  nav ol{display:flex;overflow-x:auto;gap:6px;padding-bottom:4px}
+  nav li{flex:0 0 auto}
+  nav button{grid-template-columns:24px auto;padding:8px 10px}
+  nav button .t small{display:none}
+  .stage,.book{grid-template-columns:1fr}
+}
+@media (max-width:520px){ form{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="../../index.html">Vade<span>.</span>Agency</a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="../../index.html">Accueil</a>
+    <a href="index.html" aria-current="page">Cité-Jardin</a>
+    <a href="../../clean-up.html">Vade Clean Up</a>
+    <a href="../../index.html#contact">Contact</a>
+  </nav>
+</div></header>
+<div class="wrap tourwrap">
+  <header>
+    <div>
+      <div class="eyebrow">Vade Agency · visite guidée en ligne</div>
+      <h1>La Cité-Jardin de <em>Kinshasa</em></h1>
+    </div>
+    <div class="by">Présenté par <b>Vade Agency</b> · rendus 3D et images de chantier d'octobre 2026</div>
+  </header>
+
+  <section class="tour" aria-label="Visite guidée">
+    <nav aria-label="Étapes de la visite"><ol id="steps"></ol></nav>
+    <div class="stage" id="stage"></div>
+  </section>
+
+  <section class="book" id="reserver">
+    <div>
+      <h2>Réserver une visite</h2>
+      <p>Sur place à la Cité-Jardin ou en visio pour la diaspora. La demande est préparée en message WhatsApp à envoyer à un conseiller Vade.</p>
+    </div>
+    <form class="f" id="f">
+      <label>Nom<input id="nom" required autocomplete="name"></label>
+      <label>Téléphone<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
+      <label>Type de visite
+        <select id="type"><option>Sur place à Kinshasa</option><option selected>En visio (diaspora)</option></select>
+      </label>
+      <label>Date souhaitée<input id="date" type="date"></label>
+      <label class="full">Intérêt
+        <select id="interet"><option>Appartement 3 chambres</option><option>Villa</option><option>Investissement locatif</option></select>
+      </label>
+      <button class="btn primary full" type="submit">Envoyer sur WhatsApp</button>
+      <div class="out" id="out" hidden></div>
+    </form>
+  </section>
+</div>
+
+<script src="../../assets/js/config.js"></script>
+<script>
+const STEPS = [
+  {k:"entree", t:"L'entrée", s:"Porte monumentale", tag:"Rendu 3D", video:"../../assets/cjk/entree.mp4",
+   h:"Une ville dans la ville", p:"La Cité-Jardin s'ouvre par une porte à arches qui donne le ton : avenues plantées de palmiers, ronds-points et fontaines.",
+   facts:[["Projet","La Cité-Jardin de Kinshasa (CJK)"],["Type","Ville nouvelle, villas et immeubles"]],
+   note:"Rendu 3D du promoteur. Les vues suivantes montrent l'avancement réel."},
+  {k:"quartier", t:"Les rues", s:"Immeubles et avenues", tag:"Rendu 3D", video:"../../assets/cjk/quartier.mp4",
+   h:"Des rues pensées pour marcher", p:"Immeubles résidentiels de quatre niveaux le long d'avenues avec trottoirs, arbres et stationnement.",
+   facts:[["Logements","Appartements et villas"],["Niveaux","R+3 pour les immeubles"]]},
+  {k:"ecole", t:"Sport et loisirs", s:"Terrains et espaces verts", tag:"Rendu 3D", video:"../../assets/cjk/ecole.mp4",
+   h:"Le jardin au cœur du projet", p:"Terrains de sport, allées piétonnes et espaces verts entre les blocs de logements. Le projet prévoit aussi une école secondaire.",
+   facts:[["Équipements","Terrain de football, parcs, école"]]},
+  {k:"residences", t:"Services", s:"Transport et sécurité", tag:"Rendu 3D", video:"../../assets/cjk/residences.mp4",
+   h:"Les services sur place", p:"Arrêt de bus, caserne de pompiers et équipements publics intégrés au quartier.",
+   facts:[["Services","Bus, pompiers, commerces"]]},
+  {k:"arches", t:"Chantier : l'entrée", s:"Vidéo réelle", tag:"Chantier réel", real:true, video:"../../assets/cjk/arches.mp4",
+   h:"La porte sort de terre", p:"Les arches de l'entrée sont montées et les grilles CJK posées le long de la voie d'accès.",
+   facts:[["État","Gros œuvre de l'entrée en cours"]]},
+  {k:"livre", t:"Chantier : immeubles", s:"Vidéo réelle", tag:"Chantier réel", real:true, video:"../../assets/cjk/livre.mp4",
+   h:"Premiers immeubles debout", p:"Un premier immeuble R+3 est fini en façade, avec balcons et clôture. Les visiteurs sont déjà sur site.",
+   facts:[["État","Façades terminées"]]},
+  {k:"chantier", t:"Chantier : la rue", s:"Vidéo réelle", tag:"Chantier réel", real:true, video:"../../assets/cjk/chantier.mp4",
+   h:"La suite en construction", p:"Plus loin dans la rue, les structures en béton des prochains bâtiments sont montées.",
+   facts:[["État","Structures béton en cours"]],
+   note:"Ces images sont mises à jour à chaque visite de chantier : c'est le suivi que la diaspora attend."},
+  {k:"plan", t:"L'appartement", s:"Plan 3 chambres", tag:"Plan", plan:true,
+   h:"L'appartement type, pièce par pièce", p:"Touchez une pièce du plan pour voir ses dimensions."}
+];
+const ROOMS = [
+  {id:"master", n:"Chambre parentale", w:3.66, l:3.18, box:[0,107,197,285]},
+  {id:"guest", n:"Chambre d'amis", w:4.00, l:2.92, box:[50,285,268,452]},
+  {id:"kids", n:"Chambre enfants", w:4.00, l:2.92, box:[268,285,487,452]},
+  {id:"drawing", n:"Séjour", w:4.06, l:4.22, box:[487,285,712,455]},
+  {id:"kitchen", n:"Cuisine", w:3.45, l:1.96, box:[508,107,712,220]},
+  {id:"toilet", n:"Salle d'eau", w:1.92, l:1.96, box:[197,107,312,220]},
+  {id:"bath", n:"Bain", w:1.765, l:1.14, box:[314,152,408,220]},
+  {id:"wc", n:"WC", w:1.765, l:1.14, box:[410,152,505,220]},
+  {id:"balcony", n:"Balcon", w:4.38, l:1.20, box:[480,458,712,522]},
+  {id:"corridor", n:"Couloir (1,10 m de large)", box:[197,222,712,285]}
+];
+const fmt = n => n.toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const area = r => r.w ? r.w*r.l : null;
+let cur = 0, sel = null;
+try { const v = parseInt(localStorage.getItem("cjk-step"),10); if (v>=0 && v<STEPS.length) cur = v; } catch(e){}
+if (location.hash) { const i = STEPS.findIndex(s => "#"+s.k === location.hash); if (i>=0) cur = i; }
+
+const stepsEl = document.getElementById("steps"), stage = document.getElementById("stage");
+stepsEl.innerHTML = STEPS.map((s,i)=>`<li><button data-i="${i}"><span class="n">${i+1}</span><span class="t">${s.t}<small>${s.s}</small></span></button></li>`).join("");
+stepsEl.addEventListener("click", e => { const b = e.target.closest("button"); if (b) go(+b.dataset.i); });
+
+function planHTML(){
+  const pct = (v,t)=> (v/t*100).toFixed(2)+"%";
+  const hs = ROOMS.map(r=>{const [x0,y0,x1,y1]=r.box;return `<button aria-label="${r.n}" aria-pressed="${sel===r.id}" data-r="${r.id}" style="left:${pct(x0,720)};top:${pct(y0,621)};width:${pct(x1-x0,720)};height:${pct(y1-y0,621)}"></button>`}).join("");
+  return `<div class="plan"><img src="../../assets/cjk/plan.jpg" alt="Plan de l'appartement 3 chambres">${hs}</div>`;
+}
+function roomsHTML(){
+  const tot = ROOMS.reduce((a,r)=>a+(area(r)||0),0);
+  return `<table class="rooms"><tbody>${ROOMS.filter(r=>r.w).map(r=>`<tr data-r="${r.id}" class="${sel===r.id?"on":""}"><td>${r.n}</td><td>${fmt(r.w)} × ${fmt(r.l)} m · ${fmt(area(r))} m²</td></tr>`).join("")}
+  <tr class="total"><td>Total des pièces mesurées</td><td>${fmt(tot)} m²</td></tr></tbody></table>
+  <p class="legend">Surfaces calculées depuis les cotes du plan, couloir non compté.</p>`;
+}
+function go(i){
+  cur = Math.max(0, Math.min(STEPS.length-1, i));
+  try { localStorage.setItem("cjk-step", cur); } catch(e){}
+  stepsEl.querySelectorAll("button").forEach((b,j)=> j===cur ? b.setAttribute("aria-current","step") : b.removeAttribute("aria-current"));
+  render();
+}
+function render(){
+  const s = STEPS[cur];
+  const media = s.plan ? `<div class="media" style="background:transparent">${planHTML()}</div>`
+    : `<div class="media"><video src="${s.video}" poster="${s.video.replace(".mp4",".jpg")}" muted autoplay loop playsinline controls></video><span class="tag ${s.real?"real":""}">${s.tag}</span></div>`;
+  const facts = s.facts ? `<dl class="facts">${s.facts.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl>` : "";
+  const r = sel && ROOMS.find(x=>x.id===sel);
+  const roomLine = s.plan ? (r ? `<p><b>${r.n}</b>${r.w?` · ${fmt(r.w)} × ${fmt(r.l)} m, soit ${fmt(area(r))} m²`:""}</p>` : `<p class="note">Aucune pièce choisie.</p>`) + roomsHTML() : "";
+  stage.innerHTML = `${media}<div class="info"><div class="eyebrow">Étape ${cur+1} sur ${STEPS.length}</div><h2>${s.h}</h2><p>${s.p}</p>${facts}${roomLine}${s.note?`<p class="note">${s.note}</p>`:""}
+    <div class="ctrl"><button class="btn" id="prev" ${cur===0?"disabled":""}>Précédent</button>${cur<STEPS.length-1?`<button class="btn primary" id="next">Étape suivante</button>`:`<a class="btn primary" href="#reserver">Réserver une visite</a>`}</div></div>`;
+  stage.querySelector("#prev").onclick = ()=>go(cur-1);
+  const n = stage.querySelector("#next"); if (n) n.onclick = ()=>go(cur+1);
+  stage.querySelectorAll("[data-r]").forEach(el=> el.onclick = ()=>{ sel = sel===el.dataset.r ? null : el.dataset.r; render(); });
+}
+document.addEventListener("keydown", e => { if (e.target.closest("input,select")) return; if (e.key==="ArrowRight") go(cur+1); if (e.key==="ArrowLeft") go(cur-1); });
+go(cur);
+
+document.getElementById("f").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value;
+  const out = document.getElementById("out");
+  vadeSend(`Bonjour Vade Agency, je souhaite une visite de la Cité-Jardin de Kinshasa.\nNom : ${v("nom")}\nTéléphone : ${v("tel")}\nVisite : ${v("type")}, le ${v("date") || "à convenir"}\nIntérêt : ${v("interet")}`, out);
+});
+</script>
+
+</body>
+</html>
