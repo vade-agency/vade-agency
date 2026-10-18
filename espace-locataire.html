@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Espace locataire · Vade Agency</title>
+<meta name="description" content="Locataires des biens gérés par Vade Agency : déclarer un paiement de loyer, signaler une panne, demander une quittance ou donner votre préavis, sur WhatsApp.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+@media (max-width:860px){ .book{grid-template-columns:1fr} }
+.checks{margin:0;padding-left:20px;display:grid;gap:8px}
+.checks li::marker{color:var(--gold)}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+a.card.act{text-decoration:none;color:inherit}
+a.card.act h3{color:var(--gold)}
+a.card.act:hover{border-color:var(--gold)}
+.g[hidden]{display:none}
+.faq{display:grid;gap:8px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.faq summary{cursor:pointer;font:600 16px/1.4 var(--sans)}
+.faq p{margin:8px 0 0;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 449 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · meublé, dès 114 900 $</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+        <a href="gestion-locative.html"><b>Gestion locative</b><span>Loyers, entretien et rapport mensuel</span></a>
+        <a href="espace-locataire.html"><b>Espace locataire</b><span>Loyer, panne, quittance, préavis</span></a>
+      </div>
+    </details>
+    <a href="clean-up.html">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Espace locataire</div>
+    <h1>Votre logement géré par Vade, <em>en quelques clics</em></h1>
+    <p class="lead">Vous louez un logement géré par Vade Agency ? Déclarez votre paiement, signalez une panne ou demandez un document. Votre demande arrive directement chez votre gestionnaire sur WhatsApp.</p>
+  </section>
+
+  <section>
+    <div class="grid">
+      <a class="card act" href="#demande" data-k="paiement"><h3>J'ai payé mon loyer</h3><p>Envoyez la référence de votre paiement pour qu'il soit enregistré.</p></a>
+      <a class="card act" href="#demande" data-k="panne"><h3>Signaler une panne</h3><p>Plomberie, électricité, serrure, eau… Joignez une photo sur WhatsApp.</p></a>
+      <a class="card act" href="#demande" data-k="quittance"><h3>Demander une quittance</h3><p>Recevez la preuve de paiement de votre loyer pour un mois donné.</p></a>
+      <a class="card act" href="#demande" data-k="preavis"><h3>Donner mon préavis</h3><p>Prévenez-nous de votre date de départ et organisons l'état des lieux.</p></a>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>Payer votre loyer</h2>
+    <ul class="checks">
+      <li>Le loyer se paie à la date indiquée dans votre contrat de bail.</li>
+      <li>Moyens acceptés : M-Pesa, Orange Money, Airtel Money, espèces contre reçu, ou virement.</li>
+      <li>Utilisez uniquement les numéros et comptes indiqués dans votre contrat ou par votre gestionnaire Vade.</li>
+      <li>Après chaque paiement, déclarez-le ci-dessous avec la référence de la transaction.</li>
+    </ul>
+    <p class="note">Vade Agency ne vous demandera jamais de payer sur un numéro inconnu. En cas de doute, appelez le +243 813 281 077.</p>
+  </section>
+
+  <section class="band book" id="demande">
+    <div>
+      <h2>Ma demande</h2>
+      <p class="lead" style="font-size:16px">Choisissez votre demande et remplissez le formulaire. WhatsApp s'ouvre avec votre message prêt à envoyer.</p>
+      <p class="note">Une urgence (fuite importante, court-circuit, porte bloquée) ? Appelez directement le +243 813 281 077.</p>
+    </div>
+    <form class="f" id="loc-form">
+      <label class="full">Ma demande
+        <select id="k"><option value="paiement">J'ai payé mon loyer</option><option value="panne">Signaler une panne</option><option value="quittance">Demander une quittance</option><option value="preavis">Donner mon préavis</option><option value="autre">Autre question</option></select>
+      </label>
+      <label>Nom<input id="nom" required autocomplete="name"></label>
+      <label>Téléphone / WhatsApp<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
+      <label class="full">Logement (adresse ou nom de la résidence, numéro d'appartement)<input id="bien" required placeholder="Ex. Résidence Les Palmiers, appt 4, Gombe"></label>
+
+      <label class="g paiement">Mois payé<input id="mois" type="month"></label>
+      <label class="g paiement">Montant ($)<input id="montant" inputmode="decimal" placeholder="Ex. 800"></label>
+      <label class="g paiement">Moyen de paiement
+        <select id="moyen"><option>M-Pesa</option><option>Orange Money</option><option>Airtel Money</option><option>Espèces (avec reçu)</option><option>Virement</option></select>
+      </label>
+      <label class="g paiement">Référence de la transaction<input id="ref" placeholder="Code reçu par SMS"></label>
+
+      <label class="g panne">Type de problème
+        <select id="probleme"><option>Plomberie / fuite</option><option>Électricité</option><option>Eau (pas d'eau)</option><option>Serrure / porte</option><option>Climatisation</option><option>Toiture / infiltration</option><option>Autre</option></select>
+      </label>
+      <label class="g panne">Urgence
+        <select id="urgence"><option>Peut attendre quelques jours</option><option>À régler rapidement</option><option>Urgent</option></select>
+      </label>
+
+      <label class="g quittance">Mois concerné<input id="moisq" type="month"></label>
+
+      <label class="g preavis">Date de départ prévue<input id="depart" type="date"></label>
+
+      <label class="full">Précisions<textarea id="msg" rows="2" placeholder="Décrivez votre demande. Pour une panne, envoyez aussi une photo dans WhatsApp."></textarea></label>
+      <button class="btn primary full" type="submit">Envoyer sur WhatsApp</button>
+      <div class="out" id="out" hidden></div>
+    </form>
+  </section>
+
+  <section>
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <details><summary>Qui répare en cas de panne ?</summary><p>Votre gestionnaire Vade organise l'intervention. Les petites réparations dues à l'usage peuvent rester à la charge du locataire, selon votre contrat de bail.</p></details>
+      <details><summary>Combien de temps à l'avance donner mon préavis ?</summary><p>Le délai de préavis figure dans votre contrat de bail. Prévenez-nous au plus tôt pour organiser l'état des lieux de sortie et la restitution de la garantie.</p></details>
+      <details><summary>Comment récupérer ma garantie ?</summary><p>Après l'état des lieux de sortie, la garantie est restituée selon les conditions du bail, après déduction des éventuelles réparations constatées.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-c1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">Instagram @vadeagency_241192</a><a href="https://www.tiktok.com/@vade.agency">TikTok @vade.agency</a></div>
+</div></footer>
+
+<script src="assets/js/config.js?v=4"></script>
+<script>
+const sel = document.getElementById("k");
+const show = () => document.querySelectorAll("#loc-form .g").forEach(el => el.hidden = !el.classList.contains(sel.value));
+sel.addEventListener("change", show); show();
+document.querySelectorAll("a.card.act").forEach(a => a.addEventListener("click", () => { sel.value = a.dataset.k; show(); }));
+const h = location.hash.replace("#", ""); if ([...sel.options].some(o => o.value === h)) { sel.value = h; show(); }
+document.getElementById("loc-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const titre = sel.options[sel.selectedIndex].text;
+  let d = "";
+  if (sel.value === "paiement") d = `\nMois payé : ${v("mois") || "à préciser"}\nMontant : ${v("montant") ? v("montant") + " $" : "à préciser"}\nMoyen : ${v("moyen")}\nRéférence : ${v("ref") || "à préciser"}`;
+  if (sel.value === "panne") d = `\nProblème : ${v("probleme")}\nUrgence : ${v("urgence")}`;
+  if (sel.value === "quittance") d = `\nMois : ${v("moisq") || "à préciser"}`;
+  if (sel.value === "preavis") d = `\nDate de départ prévue : ${v("depart") || "à préciser"}`;
+  const m = `Bonjour Vade Agency, espace locataire : ${titre}.\nNom : ${v("nom")}\nTéléphone : ${v("tel")}\nLogement : ${v("bien")}${d}${v("msg") ? "\nPrécisions : " + v("msg") : ""}`;
+  vadeSend(m, document.getElementById("out"));
+});
+</script>
+</body>
+</html>
