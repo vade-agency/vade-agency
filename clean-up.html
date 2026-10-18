@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vade Clean Up · Nettoyage à Kinshasa</title>
+<meta name="description" content="Vade Clean Up : nettoyage de fin de chantier, avant remise des clés et entretien régulier à Kinshasa.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+@media (max-width:860px){ .book{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 90 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · trois tours</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+      </div>
+    </details>
+    <a href="clean-up.html" aria-current="page">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Vade Clean Up · Kinshasa</div>
+    <h1>Un logement <em>prêt à vivre</em>, le jour où vous en avez besoin</h1>
+    <p class="lead">Nettoyage après travaux, avant la remise des clés ou en entretien régulier, pour les propriétaires, les locataires et les promoteurs.</p>
+  </section>
+
+  <section class="grid">
+    <div class="card"><h3>Fin de chantier</h3><p>Poussière de travaux, traces de peinture et de ciment, vitres et sols, avant la première visite.</p></div>
+    <div class="card"><h3>Remise des clés</h3><p>Logement nettoyé et vérifié avant l'arrivée d'un acheteur ou d'un locataire, avec photos à l'appui.</p></div>
+    <div class="card"><h3>Entretien régulier</h3><p>Passage chaque semaine ou chaque mois, idéal pour les biens en gestion locative Vade.</p></div>
+  </section>
+
+  <section class="band book">
+    <div>
+      <h2>Réserver un nettoyage</h2>
+      <p class="lead" style="font-size:16px">Décrivez le logement : un conseiller vous répond sur WhatsApp avec un devis et un créneau.</p>
+    </div>
+    <form class="f" id="clean-form">
+      <label>Nom<input id="nom" required autocomplete="name"></label>
+      <label>Téléphone<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
+      <label>Prestation
+        <select id="type"><option>Fin de chantier</option><option>Remise des clés</option><option>Entretien régulier</option></select>
+      </label>
+      <label>Logement
+        <select id="taille"><option>Studio</option><option>2 chambres</option><option selected>3 chambres</option><option>Villa</option><option>Bureau</option></select>
+      </label>
+      <label>Commune<input id="commune" placeholder="Gombe, Ngaliema, Limete…"></label>
+      <label>Date souhaitée<input id="date" type="date"></label>
+      <button class="btn primary full" type="submit">Demander un devis sur WhatsApp</button>
+      <div class="out" id="out" hidden></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-e1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">@vadeagency_241192</a></div>
+</div></footer>
+
+<script src="assets/js/config.js"></script>
+<script>
+document.getElementById("clean-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const m = `Bonjour Vade Clean Up,\nNom : ${v("nom")}\nTéléphone : ${v("tel")}\nPrestation : ${v("type")}\nLogement : ${v("taille")}\nCommune : ${v("commune") || "à préciser"}\nDate : ${v("date") || "à convenir"}`;
+  vadeSend(m, document.getElementById("out"));
+});
+</script>
+</body>
+</html>

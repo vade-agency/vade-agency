@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nos offres · Vade Agency</title>
+<meta name="description" content="Les offres immobilières de Vade Agency à Kinshasa : projets neufs, biens à vendre et à louer.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{cursor:pointer;font:600 14px/1 var(--sans);padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.filters button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.offer ul{margin:4px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+.offer .price{font:700 15px/1.2 var(--sans);color:var(--gold)}
+.offer .row{margin-top:auto;padding-top:8px}
+#list{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:22px;color:var(--muted)}
+.empty p{margin:0 0 12px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu is-current">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 90 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · trois tours</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+      </div>
+    </details>
+    <a href="clean-up.html">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Nos offres</div>
+    <h1>Les biens <em>sur le marché</em></h1>
+    <p class="lead">Projets neufs, biens à vendre et à louer à Kinshasa. Chaque offre se visite en ligne ou sur place avec un conseiller Vade.</p>
+  </section>
+
+  <section style="display:grid;gap:16px">
+    <div class="filters" role="group" aria-label="Filtrer les offres">
+      <button type="button" data-f="tout" aria-pressed="true">Toutes</button>
+      <button type="button" data-f="neuf" aria-pressed="false">Projets neufs</button>
+      <button type="button" data-f="vente" aria-pressed="false">À vendre</button>
+      <button type="button" data-f="location" aria-pressed="false">À louer</button>
+    </div>
+    <div class="grid" id="list"></div>
+    <div class="empty" id="empty" hidden>
+      <p id="empty-text"></p>
+      <a class="btn primary" id="empty-cta" href="#">Dites-nous ce que vous cherchez</a>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>Vous avez un bien à louer ou à vendre ?</h2>
+    <p class="lead" style="font-size:16px;margin-bottom:14px">Confiez-le à Vade Agency : mise en valeur, diffusion ciblée et accompagnement jusqu'à la conclusion. Estimation gratuite.</p>
+    <a class="btn gold" href="index.html#proprietaires">Confier mon bien</a>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-e1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">@vadeagency_241192</a></div>
+</div></footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/offres.js"></script>
+<script>
+const LABEL = {neuf:"Projet neuf", vente:"À vendre", location:"À louer"};
+const EMPTY = {neuf:"Aucun autre projet neuf pour le moment.", vente:"Aucun bien à vendre publié pour le moment.", location:"Aucun bien à louer publié pour le moment."};
+const list = document.getElementById("list"), empty = document.getElementById("empty");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function show(f){
+  document.querySelectorAll(".filters button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === f));
+  const items = window.OFFRES.filter(o => f === "tout" || o.type === f);
+  list.innerHTML = items.map(o => `<article class="card offer">
+    <img src="${esc(o.image)}" alt="${esc(o.titre)}" loading="lazy">
+    <span class="pill">${LABEL[o.type] || ""} · ${esc(o.lieu)}</span>
+    <h3>${esc(o.titre)}</h3>
+    <p>${esc(o.resume)}</p>
+    <ul>${(o.details||[]).map(d => `<li>${esc(d)}</li>`).join("")}</ul>
+    <div class="price">${esc(o.prix)}</div>
+    <div class="row"><a class="btn primary" href="${esc(o.lien)}">${esc(o.bouton || "Voir l'offre")}</a></div>
+  </article>`).join("");
+  empty.hidden = items.length > 0 && f === "tout" ? true : items.length > 0;
+  if (!items.length) {
+    document.getElementById("empty-text").textContent = (EMPTY[f] || "Aucune offre pour le moment.") + " Dites-nous ce que vous cherchez : nous vous prévenons dès qu'un bien correspond.";
+  }
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => show(b.dataset.f)));
+document.getElementById("empty-cta").addEventListener("click", e => {
+  e.preventDefault();
+  const f = document.querySelector('.filters [aria-pressed="true"]').dataset.f;
+  vadeSend(`Bonjour Vade Agency, je cherche un bien ${f === "location" ? "à louer" : f === "vente" ? "à acheter" : "dans un projet neuf"} à Kinshasa.`, null);
+});
+show("tout");
+</script>
+</body>
+</html>
