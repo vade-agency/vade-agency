@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Séjours courts à Kinshasa · Vade Agency</title>
+<meta name="description" content="Appartements meublés à Kinshasa pour quelques nuits ou quelques semaines, réservés en direct avec Vade Agency sur WhatsApp.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+@media (max-width:860px){ .book{grid-template-columns:1fr} }
+.lg .meta{font-size:14px;color:var(--muted)}
+.lg .price{font:700 20px/1.2 var(--sans);font-variant-numeric:tabular-nums}
+.lg .price small{font:600 13px/1 var(--sans);color:var(--muted)}
+.lg .tags{display:flex;flex-wrap:wrap;gap:6px}
+.lg .tags span{font-size:13px;padding:4px 9px;border-radius:999px;border:1px solid var(--line)}
+.soon{border-style:dashed;text-align:center;align-items:center;justify-content:center}
+.est{grid-column:1/-1;font-size:15px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 449 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · meublé, dès 114 900 $</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+        <a href="gestion-locative.html"><b>Gestion locative</b><span>Loyers, entretien et rapport mensuel</span></a>
+      </div>
+    </details>
+    <a href="clean-up.html">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Séjours courts · Kinshasa</div>
+    <h1>Un appartement meublé <em>pour quelques nuits</em></h1>
+    <p class="lead">Voyage d'affaires, visite en famille ou retour au pays : réservez un logement vérifié par Vade Agency, nettoyé par Vade Clean Up avant votre arrivée.</p>
+  </section>
+
+  <section>
+    <div class="grid" id="logements"></div>
+  </section>
+
+  <section>
+    <h2>Comment réserver</h2>
+    <div class="grid">
+      <div class="card"><h3>Choisissez vos dates</h3><p>Indiquez le logement, vos dates et le nombre de voyageurs dans le formulaire.</p></div>
+      <div class="card"><h3>Confirmation sur WhatsApp</h3><p>Un conseiller vérifie la disponibilité et vous envoie la confirmation.</p></div>
+      <div class="card"><h3>Acompte et arrivée</h3><p>Vous réglez l'acompte par Mobile Money ou virement. Le solde se règle à l'arrivée.</p></div>
+    </div>
+  </section>
+
+  <section class="band book" id="reserver">
+    <div>
+      <h2>Demander une réservation</h2>
+      <p class="lead" style="font-size:16px">Votre demande part sur WhatsApp, chez un conseiller Vade. La réservation est confirmée après vérification des dates.</p>
+    </div>
+    <form class="f" id="sej-form">
+      <label class="full">Logement<select id="logement"></select></label>
+      <label>Arrivée<input id="arr" type="date" required></label>
+      <label>Départ<input id="dep" type="date" required></label>
+      <label>Voyageurs<input id="voy" type="number" min="1" value="2"></label>
+      <label>Je viens de<select id="lieu"><option>Kinshasa</option><option>Autre ville de RDC</option><option>L'étranger</option></select></label>
+      <label>Nom<input id="nom" required autocomplete="name"></label>
+      <label>Téléphone / WhatsApp<input id="tel" required autocomplete="tel" placeholder="+243 … ou +33 …"></label>
+      <div class="est" id="est"></div>
+      <button class="btn primary full" type="submit">Envoyer ma demande sur WhatsApp</button>
+      <div class="out" id="out" hidden></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-e1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">Instagram @vadeagency_241192</a><a href="https://www.tiktok.com/@vade.agency">TikTok @vade.agency</a></div>
+</div></footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/sejours.js"></script>
+<script>
+const LG = window.LOGEMENTS || [];
+const box = document.getElementById("logements"), sel = document.getElementById("logement");
+const usd = n => Number(n).toLocaleString("fr-FR") + " $";
+const mk = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+LG.forEach(l => {
+  const c = mk("div", "card lg");
+  if (l.photos && l.photos[0]){ const i = mk("img"); i.src = l.photos[0]; i.alt = l.nom; i.loading = "lazy"; c.append(i); }
+  c.append(mk("h3", null, l.nom), mk("div", "meta", [l.quartier, l.chambres ? l.chambres + " ch." : "", l.voyageurs ? "jusqu'à " + l.voyageurs + " voyageurs" : ""].filter(Boolean).join(" · ")));
+  if (l.description) c.append(mk("p", null, l.description));
+  const tg = mk("div", "tags"); (l.equipements || []).forEach(t => tg.append(mk("span", null, t))); c.append(tg);
+  const pr = mk("div", "price", usd(l.prixNuit) + " "); pr.append(mk("small", null, "par nuit")); c.append(pr);
+  const a = mk("a", "btn primary", "Réserver"); a.href = "#reserver"; a.style.alignSelf = "flex-start"; a.onclick = () => { sel.value = l.id; est(); }; c.append(a);
+  box.append(c); sel.add(new Option(l.nom + " · " + usd(l.prixNuit) + " / nuit", l.id));
+});
+if (!LG.length){
+  const c = mk("div", "card soon"); c.append(mk("h3", null, "Nos logements arrivent bientôt"), mk("p", null, "Dites-nous vos dates : nous vous proposons un appartement meublé disponible."));
+  box.append(c); sel.add(new Option("Proposez-moi un logement", ""));
+} else sel.add(new Option("Je ne sais pas encore, proposez-moi", ""));
+function nights(){ const a = document.getElementById("arr").value, d = document.getElementById("dep").value; return a && d ? Math.round((Date.parse(d) - Date.parse(a)) / 86400000) : 0; }
+function est(){
+  const n = nights(), l = LG.find(x => x.id === sel.value), e = document.getElementById("est");
+  e.textContent = n > 0 ? n + " nuit" + (n > 1 ? "s" : "") + (l ? " · environ " + usd(n * l.prixNuit) + " (prix confirmé par le conseiller)" : "") : "";
+}
+["arr","dep"].forEach(id => document.getElementById(id).addEventListener("input", est)); sel.onchange = est;
+document.getElementById("sej-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim(), n = nights(), out = document.getElementById("out");
+  if (n <= 0){ out.hidden = false; out.textContent = "La date de départ doit être après la date d'arrivée."; return; }
+  const l = LG.find(x => x.id === sel.value);
+  const m = `Bonjour Vade Agency, je souhaite réserver un séjour.\nLogement : ${l ? l.nom : "à proposer"}\nArrivée : ${v("arr")}\nDépart : ${v("dep")} (${n} nuit${n > 1 ? "s" : ""})\nVoyageurs : ${v("voy")}\nJe viens de : ${v("lieu")}\nNom : ${v("nom")}\nTéléphone : ${v("tel")}`;
+  vadeSend(m, out);
+});
+</script>
+</body>
+</html>
