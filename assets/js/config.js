@@ -3,7 +3,7 @@ window.VADE = {
   // Numéro WhatsApp Business au format international, chiffres seulement (ex. "243810000000").
   whatsapp: "243813281077",
   // Visage de l'assistante Vade (photo de Déborah, CEO).
-  avatar: "assets/brand/vade-deborah.jpg",
+  avatar: "assets/brand/vade-deborah.jpg?v=2",
 };
 
 // Ouvre WhatsApp avec un message prérempli, ou affiche le message si le numéro n'est pas encore réglé.
