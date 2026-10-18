@@ -141,7 +141,7 @@ dialog.zoom img{display:block;max-width:100%;max-height:88vh;border-radius:10px}
 </div></footer>
 
 <dialog class="zoom" id="zoom"><img alt=""></dialog>
-<script src="../../assets/js/config.js"></script>
+<script src="../../assets/js/config.js?v=3"></script>
 <script>
 const z = document.getElementById("zoom");
 document.querySelectorAll("[data-z]").forEach(b => b.addEventListener("click", () => { z.querySelector("img").src = b.dataset.z; z.querySelector("img").alt = b.querySelector("img").alt; z.showModal(); }));

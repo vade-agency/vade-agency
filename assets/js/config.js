@@ -3,7 +3,7 @@ window.VADE = {
   // Numéro WhatsApp Business au format international, chiffres seulement (ex. "243810000000").
   whatsapp: "243813281077",
   // Visage de l'assistante Vade (photo de Déborah, CEO).
-  avatar: "assets/brand/vade-deborah.jpg?v=2",
+  avatar: "assets/brand/vade-deborah-2.jpg",
 };
 
 // Ouvre WhatsApp avec un message prérempli, ou affiche le message si le numéro n'est pas encore réglé.
@@ -27,6 +27,6 @@ document.addEventListener("click", e => {
 (function () {
   const me = document.currentScript; if (!me) return;
   const s = document.createElement("script");
-  s.src = me.src.replace(/config\.js(\?.*)?$/, "vade-assistant.js"); s.defer = true;
+  s.src = me.src.replace(/config\.js(\?.*)?$/, "vade-assistant.js?v=3"); s.defer = true;
   document.head.appendChild(s);
 })();
