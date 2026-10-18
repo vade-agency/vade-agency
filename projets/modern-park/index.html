@@ -27,10 +27,23 @@
 .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px}
 .out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
 .note{font-size:13px;color:var(--muted);margin:0}
+table.tarifs{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums}
+.tarifs th,.tarifs td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:15px}
+.tarifs thead th{background:var(--accent);color:var(--on-accent);font:700 13px/1.2 var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.tarifs td.prix{font:700 16px/1.2 var(--sans);color:var(--gold);white-space:nowrap}
+.tarifs tr:last-child td{border-bottom:0}
+main>section{min-width:0}
+.tscroll{overflow-x:auto;max-width:100%}
+.inclus{margin:12px 0 0;padding-left:20px;display:grid;gap:4px}
+.inclus li::marker{color:var(--gold)}
+.near{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));gap:6px 18px;margin:12px 0 0;padding:0;list-style:none;font-size:15px}
+.near li{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0}
+.near b{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted)}
 dialog.zoom{border:0;padding:0;background:transparent;max-width:min(92vw,900px)}
 dialog.zoom::backdrop{background:rgba(10,20,40,.85)}
 dialog.zoom img{display:block;max-width:100%;max-height:88vh;border-radius:10px}
 @media (max-width:860px){ .phero,.contact,.vid{grid-template-columns:1fr} }
+@media (max-width:520px){ .tarifs th,.tarifs td{padding:10px 6px;font-size:13px} .tarifs td.prix{font-size:14px} .tarifs thead th{font-size:11px;letter-spacing:0} }
 </style>
 </head>
 <body>
@@ -43,8 +56,8 @@ dialog.zoom img{display:block;max-width:100%;max-height:88vh;border-radius:10px}
       <div class="menu-panel">
         <a href="../../offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
         <a href="../../projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
-        <a href="../../projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 90 000 $</span></a>
-        <a href="../../projets/modern-park/index.html"><b>Modern Park</b><span>Limete · trois tours</span></a>
+        <a href="../../projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 449 000 $</span></a>
+        <a href="../../projets/modern-park/index.html"><b>Modern Park</b><span>Limete · meublé, dès 114 900 $</span></a>
         <a href="../../index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
       </div>
     </details>
@@ -59,12 +72,12 @@ dialog.zoom img{display:block;max-width:100%;max-height:88vh;border-radius:10px}
     <div>
       <div class="eyebrow">Projet neuf · Limete · par MCC Realty</div>
       <h1>Modern Park <em>à Limete</em></h1>
-      <p class="lead">Trois tours, une nouvelle façon de vivre à Limete : des toits-jardins, une piscine suspendue entre deux tours et des espaces de détente au milieu de la verdure.</p>
-      <ul class="facts"><li><b>3</b><span>tours résidentielles</span></li><li><b>Limete</b><span>Kinshasa</span></li><li><b>Rooftops</b><span>végétalisés</span></li><li><b>Piscine</b><span>suspendue</span></li></ul>
-      <p class="price">Prix sur demande</p>
+      <p class="lead">Okapi, Lys et Orchidée : trois tours reliées entre elles, sur le boulevard Lumumba à Limete. Des jardins au pied des tours, une piscine suspendue et des toits plantés, à quelques minutes du centre.</p>
+      <ul class="facts"><li><b>3</b><span>tours : Okapi, Lys, Orchidée</span></li><li><b>1 à 3 ch.</b><span>62 à 155 m²</span></li><li><b>10 %</b><span>à la réservation</span></li><li><b>Meublé</b><span>offre de lancement</span></li></ul>
+      <p class="price">Appartements meublés à partir de 114 900 $</p>
       <div class="row" style="margin-top:14px">
         <a class="btn primary" href="#reserver">Réserver une visite</a>
-        <a class="btn" href="#galerie">Voir les images</a>
+        <a class="btn" href="#prix">Voir les prix</a>
       </div>
     </div>
     <img src="../../assets/mp/affiche.jpg" alt="Affiche Modern Park : une nouvelle façon de vivre à Limete">
@@ -72,15 +85,32 @@ dialog.zoom img{display:block;max-width:100%;max-height:88vh;border-radius:10px}
 
   <section>
     <h2>Les espaces</h2>
-    <ul class="amen"><li>Piscine suspendue</li><li>Piscines de détente</li><li>Toits-jardins</li><li>Espaces verts</li></ul>
+    <ul class="amen"><li>Piscine suspendue</li><li>Piscines de détente</li><li>Toits-jardins</li><li>Terrain multisports</li><li>Salle de sport</li><li>Club-house</li><li>Espaces verts</li></ul>
   </section>
 
+  <section id="prix">
+    <h2>Prix et paiement</h2>
+    <div class="tscroll"><table class="tarifs"><thead><tr><th>Appartement</th><th>Surface bâtie</th><th>Parking</th><th>Prix</th></tr></thead><tbody><tr><td>1 chambre</td><td>62,16 m²</td><td>Non inclus</td><td class="prix">114 900 $</td></tr><tr><td>2 chambres</td><td>122,01 m²</td><td>1 place</td><td class="prix">239 000 $</td></tr><tr><td>3 chambres</td><td>155,06 m²</td><td>1 place</td><td class="prix">299 000 $</td></tr></tbody></table></div>
+    <p class="lead" style="font-size:16px;margin-top:14px"><b>Paiement :</b> 10 % à la réservation, puis 45 mensualités de 2 % du prix (par exemple 11 490 $ puis 45 × 2 298 $ pour un 1 chambre).</p>
+    <ul class="inclus"><li>Appartement entièrement meublé (offre de lancement)</li><li>Adhésion à vie au club-house</li><li>Deux ans de frais de syndic et d'entretien</li></ul>
+    <p class="note" style="margin-top:8px">Grille MCC Realty « offre spéciale de lancement ». Surfaces tirées de la brochure Modern Park.</p>
+  </section>
+  <section>
+    <h2>Le quartier</h2>
+    <p class="lead" style="font-size:16px">Modern Park est sur le boulevard Lumumba, entre le centre-ville et l'aéroport.</p>
+    <ul class="near"><li>Camp Ndolo<b>5,8 km</b></li><li>Hôpital HJ<b>6,9 km</b></li><li>Gare centrale<b>7,2 km</b></li><li>Marché de la Victoire<b>7,7 km</b></li><li>Stade des Martyrs<b>7,7 km</b></li><li>Palais du Peuple<b>8,4 km</b></li><li>Regal Super Market<b>9,4 km</b></li><li>Aéroport de N'djili<b>14,8 km</b></li></ul>
+  </section>
   <section id="galerie">
     <h2>Galerie</h2>
     <div class="gal">
+    <figure><button type="button" data-z="../../assets/mp/trois-tours.jpg" aria-label="Agrandir : Okapi, Lys et Orchidée au lever du soleil"><img src="../../assets/mp/trois-tours.jpg" alt="Okapi, Lys et Orchidée au lever du soleil" loading="lazy"></button><figcaption>Okapi, Lys et Orchidée au lever du soleil</figcaption></figure>
     <figure><button type="button" data-z="../../assets/mp/tours.jpg" aria-label="Agrandir : Les trois tours au bord du fleuve"><img src="../../assets/mp/tours.jpg" alt="Les trois tours au bord du fleuve" loading="lazy"></button><figcaption>Les trois tours au bord du fleuve</figcaption></figure>
     <figure><button type="button" data-z="../../assets/mp/piscine-passerelle.jpg" aria-label="Agrandir : La piscine suspendue entre les tours"><img src="../../assets/mp/piscine-passerelle.jpg" alt="La piscine suspendue entre les tours" loading="lazy"></button><figcaption>La piscine suspendue entre les tours</figcaption></figure>
     <figure><button type="button" data-z="../../assets/mp/piscines.jpg" aria-label="Agrandir : Les piscines de détente"><img src="../../assets/mp/piscines.jpg" alt="Les piscines de détente" loading="lazy"></button><figcaption>Les piscines de détente</figcaption></figure>
+    <figure><button type="button" data-z="../../assets/mp/salon-1ch.jpg" aria-label="Agrandir : Séjour d'un appartement 1 chambre"><img src="../../assets/mp/salon-1ch.jpg" alt="Séjour d'un appartement 1 chambre" loading="lazy"></button><figcaption>Séjour d'un appartement 1 chambre</figcaption></figure>
+    <figure><button type="button" data-z="../../assets/mp/chambre-2ch.jpg" aria-label="Agrandir : Chambre d'un appartement 2 chambres"><img src="../../assets/mp/chambre-2ch.jpg" alt="Chambre d'un appartement 2 chambres" loading="lazy"></button><figcaption>Chambre d'un appartement 2 chambres</figcaption></figure>
+    <figure><button type="button" data-z="../../assets/mp/terrasse-3ch.jpg" aria-label="Agrandir : Terrasse d'un appartement 3 chambres"><img src="../../assets/mp/terrasse-3ch.jpg" alt="Terrasse d'un appartement 3 chambres" loading="lazy"></button><figcaption>Terrasse d'un appartement 3 chambres</figcaption></figure>
+    <figure><button type="button" data-z="../../assets/mp/plan-quartier.jpg" aria-label="Agrandir : Modern Park sur la carte de Kinshasa"><img src="../../assets/mp/plan-quartier.jpg" alt="Modern Park sur la carte de Kinshasa" loading="lazy"></button><figcaption>Modern Park sur la carte de Kinshasa</figcaption></figure>
     </div>
     <p class="note" style="margin-top:10px">Visuels : MCC Realty, images de présentation non contractuelles.</p>
   </section>
@@ -95,7 +125,7 @@ dialog.zoom img{display:block;max-width:100%;max-height:88vh;border-radius:10px}
       <label>Nom<input id="nom" required autocomplete="name"></label>
       <label>Téléphone<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
       <label>Type de visite<select id="mode"><option>Sur place à Kinshasa</option><option>En visio (diaspora)</option></select></label>
-      <label>Intérêt<select id="type"><option>Appartement</option><option>Je veux d'abord la brochure</option></select></label>
+      <label>Intérêt<select id="type"><option>Appartement 1 chambre</option><option>Appartement 2 chambres</option><option>Appartement 3 chambres</option><option>Je veux d'abord la brochure</option></select></label>
       <label class="full">Message<textarea id="msg" rows="3"></textarea></label>
       <button class="btn primary full" type="submit">Envoyer sur WhatsApp</button>
       <div class="out" id="out" hidden></div>

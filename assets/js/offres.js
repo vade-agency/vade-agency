@@ -17,8 +17,8 @@ window.OFFRES = [
     titre: "The King Tower",
     lieu: "Gombe, avenue Wagenia",
     resume: "Tour de 207 résidences au bord du fleuve, par MCC Realty : rooftop avec piscine, spa, fitness, restaurant signature.",
-    details: ["Appartements de 1 à 4 chambres", "Solde payable sur 36 mois", "Vue sur le fleuve"],
-    prix: "Souscription dès 90 000 $",
+    details: ["2 ch. 133,59 m² · 3 ch. 184,48 m²", "Acompte dès 90 000 $, solde sur 30 à 36 mois", "Parking, club-house et 2 ans de syndic inclus"],
+    prix: "À partir de 449 000 $",
     image: "assets/kt/tour-nuit.jpg",
     lien: "projets/king-tower/index.html",
     bouton: "Découvrir le projet"
@@ -27,9 +27,9 @@ window.OFFRES = [
     type: "neuf",
     titre: "Modern Park",
     lieu: "Limete",
-    resume: "Trois tours résidentielles par MCC Realty, avec toits-jardins et piscine suspendue entre deux tours.",
-    details: ["3 tours résidentielles", "Piscine suspendue", "Toits-jardins"],
-    prix: "Prix sur demande",
+    resume: "Trois tours reliées (Okapi, Lys, Orchidée) sur le boulevard Lumumba, par MCC Realty : piscine suspendue et toits-jardins.",
+    details: ["1 à 3 chambres, de 62 à 155 m²", "Livrés meublés (offre de lancement)", "10 % à la réservation, puis 45 × 2 %"],
+    prix: "À partir de 114 900 $",
     image: "assets/mp/tours.jpg",
     lien: "projets/modern-park/index.html",
     bouton: "Découvrir le projet"
