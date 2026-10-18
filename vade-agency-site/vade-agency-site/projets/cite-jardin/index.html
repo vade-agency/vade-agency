@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>La Cité-Jardin de Kinshasa · Visite guidée · Vade Agency</title>
 <meta name="description" content="Visite guidée en ligne de la Cité-Jardin de Kinshasa : rendus 3D, vidéos de chantier et plan d'appartement interactif.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../assets/css/style.css">
 <style>
 .tourwrap{display:grid;gap:20px;padding-block:24px 48px}
-header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
+.tourwrap>header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
 .eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 h1{font:700 clamp(28px,4.4vw,46px)/1.05 var(--display);margin:6px 0 0;text-wrap:balance}
-h1 em{font-style:normal;color:var(--accent)}
+h1 em{font-style:normal;color:var(--gold)}
 .by{color:var(--muted);font-size:14px}
 .by b{color:var(--ink)}
 .tour{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:start}
@@ -24,7 +24,7 @@ nav button .t{font-weight:600;line-height:1.25}
 nav button .t small{display:block;font-weight:400;font-size:13px}
 nav button:hover{background:var(--surface);color:var(--ink)}
 nav button[aria-current="step"]{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
-nav button[aria-current="step"] .n{background:var(--accent);border-color:var(--accent);color:#fff}
+nav button[aria-current="step"] .n{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .stage{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
 .media{position:relative;border-radius:10px;overflow:hidden;background:#0b0f0d;display:grid;place-items:center;min-height:240px}
@@ -32,7 +32,7 @@ nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .media .tag{position:absolute;left:10px;top:10px;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.6);color:#fff}
 .media .tag.real{background:var(--garden)}
 .info{display:flex;flex-direction:column;gap:12px;min-width:0}
-.info h2{font:700 26px/1.1 var(--display);margin:0;text-wrap:balance}
+.info h2{font:600 26px/1.15 var(--display);margin:0;text-wrap:balance}
 .info p{margin:0;color:var(--ink)}
 .info .note{color:var(--muted);font-size:14px}
 .facts{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:14px}
@@ -40,7 +40,7 @@ nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .facts dd{margin:0;font-weight:600}
 .ctrl{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
 .btn{all:unset;box-sizing:border-box;cursor:pointer;padding:10px 16px;border-radius:999px;font-weight:600;border:1px solid var(--line);color:var(--ink)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .btn[disabled]{opacity:.4;cursor:default}
 /* plan */
@@ -80,11 +80,19 @@ form .full{grid-column:1/-1}
 <body>
 
 <header class="site-head"><div class="wrap">
-  <a class="brand" href="../../index.html">Vade<span>.</span>Agency</a>
+  <a class="brand" href="../../index.html"><img src="../../assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
   <nav class="site-nav" aria-label="Menu">
     <a href="../../index.html">Accueil</a>
-    <a href="index.html" aria-current="page">Cité-Jardin</a>
+    <details class="menu" class="is-current">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="../../offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="../../projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="../../index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+      </div>
+    </details>
     <a href="../../clean-up.html">Vade Clean Up</a>
+    <a href="../../groupe.html">Groupe VADE</a>
     <a href="../../index.html#contact">Contact</a>
   </nav>
 </div></header>
@@ -122,6 +130,11 @@ form .full{grid-column:1/-1}
     </form>
   </section>
 </div>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="../../assets/brand/vade-sarl-logo-e1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="../../groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">@vadeagency_241192</a></div>
+</div></footer>
 
 <script src="../../assets/js/config.js"></script>
 <script>

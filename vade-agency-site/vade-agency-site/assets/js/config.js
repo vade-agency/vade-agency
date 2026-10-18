@@ -15,3 +15,8 @@ window.vadeSend = function (message, outEl) {
     outEl.textContent = message + "\n\n(Le numéro WhatsApp de Vade n'est pas encore configuré.)";
   }
 };
+
+// Ferme le menu « Nos offres » quand on clique ailleurs.
+document.addEventListener("click", e => {
+  document.querySelectorAll("details.menu[open]").forEach(d => { if (!d.contains(e.target)) d.open = false; });
+});

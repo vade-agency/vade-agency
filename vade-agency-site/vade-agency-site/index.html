@@ -5,35 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vade Agency · Immobilier à Kinshasa</title>
 <meta name="description" content="Vade Agency : projets immobiliers à Kinshasa, visites guidées en ligne, gestion locative et nettoyage Vade Clean Up.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
 .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center}
 .hero video{width:100%;border-radius:14px;display:block;background:#0b0f0d}
 .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;list-style:none;margin:0;padding:0}
 .steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
-.steps li::before{content:counter(s);display:inline grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font:500 13px/1 var(--mono);margin-bottom:8px}
+.steps li::before{content:counter(s);display:inline grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--on-accent);font:500 13px/1 var(--mono);margin-bottom:8px}
 .steps p{margin:0;color:var(--muted)}
+.owners{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.owners img{border-radius:12px;width:100%}
+.checks{margin:14px 0 0;padding-left:20px;display:grid;gap:6px}
+.checks li::marker{color:var(--gold)}
 .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px}
 .out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
-@media (max-width:860px){ .hero,.contact{grid-template-columns:1fr} }
+@media (max-width:860px){ .hero,.contact,.owners{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 <header class="site-head"><div class="wrap">
-  <a class="brand" href="index.html">Vade<span>.</span>Agency</a>
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
   <nav class="site-nav" aria-label="Menu">
     <a href="index.html" aria-current="page">Accueil</a>
-    <a href="projets/cite-jardin/index.html">Cité-Jardin</a>
+    <details class="menu">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+      </div>
+    </details>
     <a href="clean-up.html">Vade Clean Up</a>
-    <a href="#contact">Contact</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
 </div></header>
 
 <main class="wrap">
   <section class="hero">
     <div>
-      <div class="eyebrow">Immobilier à Kinshasa · Kinshasa et diaspora</div>
+      <div class="eyebrow">Immobilier · Courtage · Conseil · Kinshasa</div>
       <h1>Visitez votre futur logement <em>depuis n'importe où</em></h1>
       <p class="lead">Vade Agency présente les projets immobiliers de Kinshasa en visite guidée en ligne, suit les chantiers en vidéo et s'occupe de votre bien après la remise des clés.</p>
       <div class="row" style="margin-top:18px">
@@ -72,6 +84,21 @@
     </div>
   </section>
 
+  <section class="owners" id="proprietaires">
+    <div>
+      <div class="eyebrow">Propriétaires</div>
+      <h2>Vous avez un bien à louer ou à vendre ?</h2>
+      <p class="lead" style="font-size:17px">Confiez-le à Vade Agency. Nous mettons notre expertise et notre réseau à votre service pour valoriser votre bien et trouver le bon acquéreur ou locataire.</p>
+      <ul class="checks">
+        <li><b>Mise en valeur professionnelle</b> : photos de qualité et annonces attractives.</li>
+        <li><b>Diffusion ciblée</b> : sur nos réseaux et auprès de notre clientèle.</li>
+        <li><b>Clients sérieux et qualifiés</b>, et un accompagnement de A à Z jusqu'à la conclusion.</li>
+      </ul>
+      <div class="row" style="margin-top:14px"><a class="btn gold" href="#contact" data-besoin="Vendre ou louer mon bien">Estimation gratuite</a></div>
+    </div>
+    <img src="assets/brand/flyer-proprietaires.jpg" alt="Affiche Vade Agency : vous avez un bien à louer ou à vendre ? Confiez-le à Vade Agency" loading="lazy">
+  </section>
+
   <section>
     <h2>Acheter depuis la diaspora</h2>
     <ol class="steps">
@@ -91,7 +118,7 @@
       <label>Nom<input id="nom" required autocomplete="name"></label>
       <label>Téléphone<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
       <label>Je cherche
-        <select id="besoin"><option>Acheter dans un projet neuf</option><option>Louer</option><option>Faire gérer mon bien</option><option>Vade Clean Up</option></select>
+        <select id="besoin"><option>Acheter dans un projet neuf</option><option>Louer</option><option>Faire gérer mon bien</option><option>Vendre ou louer mon bien</option><option>Vade Clean Up</option></select>
       </label>
       <label>Je suis
         <select id="lieu"><option>À Kinshasa</option><option>Dans la diaspora</option></select>
@@ -103,10 +130,14 @@
   </section>
 </main>
 
-<footer class="site-foot"><div class="wrap"><span>Vade Agency · Kinshasa, RDC</span><span>Rendus 3D de la Cité-Jardin : promoteur du projet</span></div></footer>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-e1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">@vadeagency_241192</a></div>
+</div></footer>
 
 <script src="assets/js/config.js"></script>
 <script>
+document.querySelectorAll("[data-besoin]").forEach(a => a.addEventListener("click", () => { document.getElementById("besoin").value = a.dataset.besoin; }));
 document.getElementById("contact-form").addEventListener("submit", e => {
   e.preventDefault();
   const v = id => document.getElementById(id).value.trim();
