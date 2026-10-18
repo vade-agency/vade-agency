@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gestion locative à Kinshasa · Vade Agency</title>
+<meta name="description" content="Gestion locative à Kinshasa par Vade Agency : recherche de locataires, encaissement des loyers, entretien et rapport mensuel, même depuis la diaspora.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+@media (max-width:860px){ .book{grid-template-columns:1fr} }
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.steps li::before{content:counter(s);display:inline grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--on-accent);font:600 13px/1 var(--sans);margin-bottom:8px}
+.steps h3{margin:0 0 4px}.steps p{margin:0;color:var(--muted)}
+.checks{margin:0;padding-left:20px;display:grid;gap:8px}
+.checks li::marker{color:var(--gold)}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 449 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · meublé, dès 114 900 $</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+        <a href="gestion-locative.html"><b>Gestion locative</b><span>Loyers, entretien et rapport mensuel</span></a>
+      </div>
+    </details>
+    <a href="clean-up.html">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Gestion locative · Kinshasa</div>
+    <h1>Votre bien loué <em>et suivi</em>, sans vous en occuper</h1>
+    <p class="lead">Vade Agency trouve le locataire, encaisse les loyers et entretient votre bien. Vous recevez un rapport chaque mois, que vous soyez à Kinshasa ou dans la diaspora.</p>
+    <div class="row" style="margin-top:16px"><a class="btn gold" href="#confier">Confier mon bien</a></div>
+  </section>
+
+  <section>
+    <h2>Ce que nous faisons pour vous</h2>
+    <div class="grid">
+      <div class="card"><h3>Trouver le bon locataire</h3><p>Photos professionnelles, annonces sur nos réseaux, visites, vérification des candidats et contrat de bail.</p></div>
+      <div class="card"><h3>Encaisser les loyers</h3><p>Suivi de chaque échéance, relances en cas de retard, et reversement au propriétaire.</p></div>
+      <div class="card"><h3>Entretenir le bien</h3><p>États des lieux d'entrée et de sortie, petites réparations, et nettoyage Vade Clean Up entre deux locataires.</p></div>
+      <div class="card"><h3>Vous tenir informé</h3><p>Un rapport chaque mois sur WhatsApp : loyers reçus, dépenses, état du bien, avec photos.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Comment ça marche</h2>
+    <ol class="steps">
+      <li><h3>Visite et estimation</h3><p>Nous visitons le bien et vous proposons un loyer adapté au quartier.</p></li>
+      <li><h3>Mandat de gestion</h3><p>Nous signons un mandat qui fixe nos missions et nos honoraires.</p></li>
+      <li><h3>Mise en location</h3><p>Nous trouvons et installons le locataire.</p></li>
+      <li><h3>Suivi mensuel</h3><p>Loyers, entretien et rapport : nous nous occupons de tout.</p></li>
+    </ol>
+  </section>
+
+  <section class="band">
+    <h2>Pour les propriétaires de la diaspora</h2>
+    <ul class="checks">
+      <li>Un conseiller Vade unique, joignable sur WhatsApp.</li>
+      <li>Des photos et vidéos du bien à chaque état des lieux.</li>
+      <li>Les acheteurs de The King Tower, Modern Park ou la Cité-Jardin peuvent nous confier leur appartement dès la livraison.</li>
+    </ul>
+    <p class="note">Honoraires : un pourcentage du loyer encaissé, précisé dans le mandat. L'estimation est gratuite.</p>
+  </section>
+
+  <section class="band book" id="confier">
+    <div>
+      <h2>Confier mon bien</h2>
+      <p class="lead" style="font-size:16px">Décrivez votre bien : un conseiller vous répond sur WhatsApp pour organiser la visite et l'estimation.</p>
+    </div>
+    <form class="f" id="gl-form">
+      <label>Nom<input id="nom" required autocomplete="name"></label>
+      <label>Téléphone / WhatsApp<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
+      <label>Type de bien
+        <select id="type"><option>Appartement</option><option>Maison / villa</option><option>Studio</option><option>Bureau / local</option></select>
+      </label>
+      <label>Chambres
+        <select id="ch"><option>1</option><option selected>2</option><option>3</option><option>4 et plus</option><option>Sans objet</option></select>
+      </label>
+      <label>Commune<input id="commune" required placeholder="Gombe, Ngaliema, Limete…"></label>
+      <label>Le bien est
+        <select id="etat"><option>Libre, à louer</option><option>Déjà loué</option><option>En construction</option></select>
+      </label>
+      <label>Je suis
+        <select id="lieu"><option>À Kinshasa</option><option>Dans la diaspora</option></select>
+      </label>
+      <label>Loyer souhaité ($)<input id="loyer" inputmode="numeric" placeholder="Ex. 800"></label>
+      <button class="btn primary full" type="submit">Envoyer sur WhatsApp</button>
+      <div class="out" id="out" hidden></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-e1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">Instagram @vadeagency_241192</a><a href="https://www.tiktok.com/@vade.agency">TikTok @vade.agency</a></div>
+</div></footer>
+
+<script src="assets/js/config.js"></script>
+<script>
+document.getElementById("gl-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const m = `Bonjour Vade Agency, je souhaite confier mon bien en gestion locative.\nNom : ${v("nom")}\nTéléphone : ${v("tel")}\nBien : ${v("type")}, ${v("ch")} ch.\nCommune : ${v("commune")}\nÉtat : ${v("etat")}\nJe suis : ${v("lieu")}\nLoyer souhaité : ${v("loyer") ? v("loyer") + " $" : "à estimer"}`;
+  vadeSend(m, document.getElementById("out"));
+});
+</script>
+</body>
+</html>
