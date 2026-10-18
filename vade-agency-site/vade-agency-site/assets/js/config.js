@@ -1,7 +1,7 @@
 // Réglages à remplir par Vade Agency.
 window.VADE = {
   // Numéro WhatsApp Business au format international, chiffres seulement (ex. "243810000000").
-  whatsapp: "",
+  whatsapp: "243813281077",
 };
 
 // Ouvre WhatsApp avec un message prérempli, ou affiche le message si le numéro n'est pas encore réglé.
