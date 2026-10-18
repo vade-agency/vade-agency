@@ -11,6 +11,21 @@
 .out{grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;white-space:pre-wrap}
 .book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
 @media (max-width:860px){ .book{grid-template-columns:1fr} }
+.who{display:flex;flex-wrap:wrap;gap:8px}
+.who span{font:600 14px/1 var(--sans);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.note{font-size:15px;color:var(--muted);margin:12px 0 0}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.steps li::before{content:counter(s);display:inline grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--on-accent);font:600 13px/1 var(--sans);margin-bottom:8px}
+.steps h3{margin:0 0 4px}.steps p{margin:0;color:var(--muted)}
+.faq{display:grid;gap:8px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.faq summary{cursor:pointer;font:600 16px/1.4 var(--sans)}
+.faq p{margin:8px 0 0;color:var(--muted)}
+.opts{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px 16px}
+.opts legend{font:600 13px/1.3 var(--sans);margin-bottom:6px;padding:0}
+form.f .opts label{display:flex;align-items:center;gap:6px;font-weight:500}
+.opts input{width:auto}
 </style>
 </head>
 <body>
@@ -40,31 +55,91 @@
     <picture><source srcset="assets/brand/vade-clean-up-blanc.svg" media="(prefers-color-scheme: dark)"><img class="sub-logo" src="assets/brand/vade-clean-up-or.svg" alt="Vade Clean Up : services de nettoyage professionnels" width="1180" height="410"></picture>
     <div class="eyebrow">Vade Clean Up · Kinshasa</div>
     <h1>Un logement <em>prêt à vivre</em>, le jour où vous en avez besoin</h1>
-    <p class="lead">Nettoyage après travaux, avant la remise des clés ou en entretien régulier, pour les propriétaires, les locataires et les promoteurs.</p>
+    <p class="lead">Nettoyage après travaux, avant la remise des clés, entre deux locataires ou en entretien régulier, pour les particuliers, les propriétaires, les promoteurs et les entreprises.</p>
+    <div class="row" style="margin-top:16px;display:flex;flex-wrap:wrap;gap:10px"><a class="btn gold" href="#devis">Demander un devis gratuit</a><a class="btn" href="#formules">Voir les formules</a></div>
   </section>
 
-  <section class="grid">
-    <div class="card"><h3>Fin de chantier</h3><p>Poussière de travaux, traces de peinture et de ciment, vitres et sols, avant la première visite.</p></div>
-    <div class="card"><h3>Remise des clés</h3><p>Logement nettoyé et vérifié avant l'arrivée d'un acheteur ou d'un locataire, avec photos à l'appui.</p></div>
-    <div class="card"><h3>Entretien régulier</h3><p>Passage chaque semaine ou chaque mois, idéal pour les biens en gestion locative Vade.</p></div>
+  <section>
+    <h2>Nos prestations</h2>
+    <div class="grid">
+      <div class="card"><h3>Fin de chantier</h3><p>Poussière de travaux, traces de peinture et de ciment, vitres, sols et sanitaires, avant la première visite ou la livraison.</p></div>
+      <div class="card"><h3>Remise des clés</h3><p>Logement nettoyé et vérifié avant l'arrivée d'un acheteur ou d'un locataire, avec photos à l'appui.</p></div>
+      <div class="card"><h3>Entre deux séjours</h3><p>Ménage, linge et réassort pour les appartements loués à la nuit (Airbnb, Booking, séjours Vade).</p></div>
+      <div class="card"><h3>Entretien régulier</h3><p>Passage chaque semaine, tous les quinze jours ou chaque mois, pour les maisons et les biens en gestion locative.</p></div>
+      <div class="card"><h3>Grand ménage et déménagement</h3><p>Nettoyage complet avant d'emménager ou après le départ : placards, cuisine, électroménager, murs et sols.</p></div>
+      <div class="card"><h3>Bureaux et commerces</h3><p>Entretien des espaces de travail, sanitaires et vitrines, en dehors des heures d'ouverture si besoin.</p></div>
+      <div class="card"><h3>Vitres</h3><p>Vitres, baies vitrées, garde-corps et menuiseries, à l'intérieur et à l'extérieur accessible.</p></div>
+      <div class="card"><h3>Canapés, matelas et tapis</h3><p>Nettoyage en profondeur des textiles d'ameublement, en option ou en intervention seule.</p></div>
+    </div>
   </section>
 
-  <section class="band book">
+  <section>
+    <h2>Pour qui</h2>
+    <div class="who">
+      <span>Particuliers</span><span>Propriétaires et diaspora</span><span>Locataires</span><span>Hôtes Airbnb</span><span>Promoteurs et chantiers</span><span>Bureaux et commerces</span>
+    </div>
+  </section>
+
+  <section id="formules">
+    <h2>Nos formules</h2>
+    <div class="grid">
+      <div class="card"><span class="pill">Une fois</span><h3>Intervention ponctuelle</h3><p>Une fin de chantier, un grand ménage ou une remise des clés. Le devis dépend de la surface, de l'état du logement et des options choisies.</p></div>
+      <div class="card"><span class="pill">Abonnement</span><h3>Entretien régulier</h3><p>Même équipe à chaque passage, jour fixe, et un tarif plus avantageux qu'à l'intervention. Chaque semaine, tous les quinze jours ou chaque mois.</p></div>
+      <div class="card"><span class="pill">Professionnels</span><h3>Promoteurs et gestionnaires</h3><p>Contrat de fin de chantier par lot ou par immeuble, et ménage entre locataires pour les biens gérés. Facturation mensuelle.</p></div>
+    </div>
+    <p class="note">Tous nos devis sont gratuits. Envoyez-nous des photos du logement sur WhatsApp pour recevoir un prix plus vite.</p>
+  </section>
+
+  <section>
+    <h2>Comment ça se passe</h2>
+    <ol class="steps">
+      <li><h3>Votre demande</h3><p>Décrivez le logement et la prestation avec le formulaire ci-dessous.</p></li>
+      <li><h3>Le devis</h3><p>Sur photos ou après une courte visite, nous vous envoyons le prix et un créneau.</p></li>
+      <li><h3>L'intervention</h3><p>L'équipe Vade Clean Up nettoie pièce par pièce, selon une liste de contrôle.</p></li>
+      <li><h3>Le contrôle</h3><p>Vous recevez les photos avant et après sur WhatsApp, même si vous êtes à l'étranger.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <details><summary>Dans quels quartiers intervenez-vous ?</summary><p>Partout à Kinshasa. Indiquez votre commune dans la demande : nous confirmons le créneau avec le devis.</p></details>
+      <details><summary>Dois-je être présent pendant le nettoyage ?</summary><p>Non. Vous pouvez nous confier les clés, ou passer par Vade Agency si votre bien est en gestion. Les photos avant et après vous sont envoyées sur WhatsApp.</p></details>
+      <details><summary>Combien de temps dure une intervention ?</summary><p>Cela dépend de la surface et de l'état du logement. Une fin de chantier prend plus de temps qu'un entretien régulier. La durée est indiquée dans le devis.</p></details>
+      <details><summary>Comment payer ?</summary><p>Par Mobile Money (M-Pesa, Orange Money, Airtel Money), en espèces ou par virement. Les abonnements se règlent chaque mois.</p></details>
+      <details><summary>Je suis propriétaire à l'étranger, pouvez-vous gérer tout le reste ?</summary><p>Oui. Avec la <a href="gestion-locative.html">gestion locative Vade</a>, nous trouvons le locataire, encaissons les loyers et organisons le ménage entre deux locataires.</p></details>
+    </div>
+  </section>
+
+  <section class="band book" id="devis">
     <div>
-      <h2>Réserver un nettoyage</h2>
-      <p class="lead" style="font-size:16px">Décrivez le logement : un conseiller vous répond sur WhatsApp avec un devis et un créneau.</p>
+      <h2>Demander un devis</h2>
+      <p class="lead" style="font-size:16px">Décrivez le logement : un conseiller vous répond sur WhatsApp avec un devis et un créneau. Vous pouvez ensuite lui envoyer des photos.</p>
     </div>
     <form class="f" id="clean-form">
-      <label>Nom<input id="nom" required autocomplete="name"></label>
-      <label>Téléphone<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
-      <label>Prestation
-        <select id="type"><option>Fin de chantier</option><option>Remise des clés</option><option>Entretien régulier</option></select>
+      <label class="full">Prestation
+        <select id="type"><option>Fin de chantier</option><option>Remise des clés</option><option>Entre deux séjours (Airbnb)</option><option>Entretien régulier</option><option>Grand ménage / déménagement</option><option>Bureaux et commerces</option><option>Vitres</option><option>Canapés, matelas et tapis</option></select>
       </label>
       <label>Logement
-        <select id="taille"><option>Studio</option><option>2 chambres</option><option selected>3 chambres</option><option>Villa</option><option>Bureau</option></select>
+        <select id="taille"><option>Studio</option><option>1 chambre</option><option>2 chambres</option><option selected>3 chambres</option><option>4 chambres et plus</option><option>Villa</option><option>Bureau / local</option></select>
       </label>
-      <label>Commune<input id="commune" placeholder="Gombe, Ngaliema, Limete…"></label>
+      <label>Surface approximative (m²)<input id="surface" inputmode="numeric" placeholder="Ex. 120"></label>
+      <label>Fréquence
+        <select id="freq"><option>Une seule fois</option><option>Chaque semaine</option><option>Tous les 15 jours</option><option>Chaque mois</option></select>
+      </label>
       <label>Date souhaitée<input id="date" type="date"></label>
+      <label class="full">Commune<input id="commune" placeholder="Gombe, Ngaliema, Limete…"></label>
+      <fieldset class="full opts"><legend>Options</legend>
+        <label><input type="checkbox" value="Vitres"> Vitres</label>
+        <label><input type="checkbox" value="Canapés"> Canapés</label>
+        <label><input type="checkbox" value="Matelas"> Matelas</label>
+        <label><input type="checkbox" value="Tapis"> Tapis</label>
+        <label><input type="checkbox" value="Intérieur frigo et four"> Frigo et four</label>
+        <label><input type="checkbox" value="Linge (séjours)"> Linge</label>
+      </fieldset>
+      <label>Nom<input id="nom" required autocomplete="name"></label>
+      <label>Téléphone / WhatsApp<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
+      <label class="full">Précisions<textarea id="msg" rows="2" placeholder="État du logement, accès, étage, horaires…"></textarea></label>
       <button class="btn primary full" type="submit">Demander un devis sur WhatsApp</button>
       <div class="out" id="out" hidden></div>
     </form>
@@ -81,7 +156,8 @@
 document.getElementById("clean-form").addEventListener("submit", e => {
   e.preventDefault();
   const v = id => document.getElementById(id).value.trim();
-  const m = `Bonjour Vade Clean Up,\nNom : ${v("nom")}\nTéléphone : ${v("tel")}\nPrestation : ${v("type")}\nLogement : ${v("taille")}\nCommune : ${v("commune") || "à préciser"}\nDate : ${v("date") || "à convenir"}`;
+  const opts = [...document.querySelectorAll(".opts input:checked")].map(i => i.value).join(", ");
+  const m = `Bonjour Vade Clean Up, je souhaite un devis.\nNom : ${v("nom")}\nTéléphone : ${v("tel")}\nPrestation : ${v("type")}\nLogement : ${v("taille")}${v("surface") ? ", environ " + v("surface") + " m²" : ""}\nFréquence : ${v("freq")}\nCommune : ${v("commune") || "à préciser"}\nDate : ${v("date") || "à convenir"}\nOptions : ${opts || "aucune"}${v("msg") ? "\nPrécisions : " + v("msg") : ""}`;
   vadeSend(m, document.getElementById("out"));
 });
 </script>
