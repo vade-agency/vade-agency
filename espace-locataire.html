@@ -60,6 +60,7 @@ a.card.act:hover{border-color:var(--gold)}
       <a class="card act" href="#demande" data-k="paiement"><h3>J'ai payé mon loyer</h3><p>Envoyez la référence de votre paiement pour qu'il soit enregistré.</p></a>
       <a class="card act" href="#demande" data-k="panne"><h3>Signaler une panne</h3><p>Plomberie, électricité, serrure, eau… Joignez une photo sur WhatsApp.</p></a>
       <a class="card act" href="#demande" data-k="quittance"><h3>Demander une quittance</h3><p>Recevez la preuve de paiement de votre loyer pour un mois donné.</p></a>
+      <a class="card act" href="#demande" data-k="travaux"><h3>Travaux à rembourser</h3><p>Vous avez payé une réparation à la charge du bailleur ? Déclarez-la pour son remboursement.</p></a>
       <a class="card act" href="#demande" data-k="preavis"><h3>Donner mon préavis</h3><p>Prévenez-nous de votre date de départ et organisons l'état des lieux.</p></a>
     </div>
   </section>
@@ -83,7 +84,7 @@ a.card.act:hover{border-color:var(--gold)}
     </div>
     <form class="f" id="loc-form">
       <label class="full">Ma demande
-        <select id="k"><option value="paiement">J'ai payé mon loyer</option><option value="panne">Signaler une panne</option><option value="quittance">Demander une quittance</option><option value="preavis">Donner mon préavis</option><option value="autre">Autre question</option></select>
+        <select id="k"><option value="paiement">J'ai payé mon loyer</option><option value="panne">Signaler une panne</option><option value="quittance">Demander une quittance</option><option value="travaux">Travaux à rembourser</option><option value="preavis">Donner mon préavis</option><option value="garantie">Restitution de ma garantie</option><option value="autre">Autre question</option></select>
       </label>
       <label>Nom<input id="nom" required autocomplete="name"></label>
       <label>Téléphone / WhatsApp<input id="tel" required autocomplete="tel" placeholder="+243 …"></label>
@@ -105,6 +106,14 @@ a.card.act:hover{border-color:var(--gold)}
 
       <label class="g quittance">Mois concerné<input id="moisq" type="month"></label>
 
+      <label class="g travaux">Travaux réalisés<input id="trav" placeholder="Ex. remplacement du chauffe-eau"></label>
+      <label class="g travaux">Montant payé ($)<input id="tmontant" inputmode="decimal"></label>
+      <label class="g travaux">Date des travaux<input id="tdate" type="date"></label>
+      <label class="g travaux">Accord préalable du bailleur<select id="taccord"><option>Oui, devis approuvé</option><option>Non, réparation urgente</option><option>Non</option></select></label>
+
+      <label class="g garantie">Montant de la garantie versée ($)<input id="gmontant" inputmode="decimal"></label>
+      <label class="g garantie">Date de fin du bail<input id="gfin" type="date"></label>
+
       <label class="g preavis">Date de départ prévue<input id="depart" type="date"></label>
 
       <label class="full">Précisions<textarea id="msg" rows="2" placeholder="Décrivez votre demande. Pour une panne, envoyez aussi une photo dans WhatsApp."></textarea></label>
@@ -113,12 +122,25 @@ a.card.act:hover{border-color:var(--gold)}
     </form>
   </section>
 
+  <section class="band" id="garantie">
+    <h2>Garantie locative et vos droits</h2>
+    <ul class="checks">
+      <li><b>Montant</b> : la garantie ne peut pas dépasser 3 mois de loyer pour un logement. Elle ne peut pas être augmentée en cours de bail et ne sert pas à payer le loyer (article 18).</li>
+      <li><b>Restitution</b> : elle vous est rendue à la fin du bail, après déduction des sommes éventuellement dues au bailleur (article 19).</li>
+      <li><b>Réparations</b> : les grosses réparations sont à la charge du bailleur. Vous faites les réparations locatives, sauf celles dues à l'usure, à la vétusté ou à un défaut de construction (articles 11 et 13).</li>
+      <li><b>Travaux que vous payez</b> : avec l'accord du bailleur sur le devis, leur coût vous est remboursé intégralement, par exemple par déduction sur le loyer (articles 13 et 14).</li>
+      <li><b>Préavis</b> : 3 mois pour un bail à durée indéterminée (article 30).</li>
+    </ul>
+    <div class="row" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px"><a class="btn gold" href="https://www.leganet.cd/Legislation/Droit%20obligations-contrats/Bail/Loi.15.025.31.12.html" target="_blank" rel="noopener">Lire la loi sur le bail en RDC</a></div>
+    <p class="note">Loi n° 15/025 du 31 décembre 2015 relative aux baux à loyer non professionnels. Résumé indicatif : une réforme a été adoptée par l'Assemblée nationale le 4 juin 2026 et doit encore passer au Sénat. Votre contrat de bail précise vos conditions.</p>
+  </section>
+
   <section>
     <h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Qui répare en cas de panne ?</summary><p>Votre gestionnaire Vade organise l'intervention. Les petites réparations dues à l'usage peuvent rester à la charge du locataire, selon votre contrat de bail.</p></details>
-      <details><summary>Combien de temps à l'avance donner mon préavis ?</summary><p>Le délai de préavis figure dans votre contrat de bail. Prévenez-nous au plus tôt pour organiser l'état des lieux de sortie et la restitution de la garantie.</p></details>
-      <details><summary>Comment récupérer ma garantie ?</summary><p>Après l'état des lieux de sortie, la garantie est restituée selon les conditions du bail, après déduction des éventuelles réparations constatées.</p></details>
+      <details><summary>Combien de temps à l'avance donner mon préavis ?</summary><p>Pour un bail à durée indéterminée, la loi prévoit 3 mois de préavis. Vérifiez aussi votre contrat de bail et prévenez-nous au plus tôt pour organiser l'état des lieux de sortie et la restitution de la garantie.</p></details>
+      <details><summary>Comment récupérer ma garantie ?</summary><p>Après l'état des lieux de sortie, la garantie est restituée à la fin du bail, après déduction des sommes dues au bailleur (loyers impayés, dégâts constatés). Utilisez la demande « Restitution de ma garantie » ci-dessus.</p></details>
     </div>
   </section>
 </main>
@@ -143,6 +165,8 @@ document.getElementById("loc-form").addEventListener("submit", e => {
   if (sel.value === "paiement") d = `\nMois payé : ${v("mois") || "à préciser"}\nMontant : ${v("montant") ? v("montant") + " $" : "à préciser"}\nMoyen : ${v("moyen")}\nRéférence : ${v("ref") || "à préciser"}`;
   if (sel.value === "panne") d = `\nProblème : ${v("probleme")}\nUrgence : ${v("urgence")}`;
   if (sel.value === "quittance") d = `\nMois : ${v("moisq") || "à préciser"}`;
+  if (sel.value === "travaux") d = `\nTravaux : ${v("trav") || "à préciser"}\nMontant payé : ${v("tmontant") ? v("tmontant") + " $" : "à préciser"}\nDate : ${v("tdate") || "à préciser"}\nAccord du bailleur : ${v("taccord")}\nJe joins la facture et les photos dans WhatsApp.`;
+  if (sel.value === "garantie") d = `\nGarantie versée : ${v("gmontant") ? v("gmontant") + " $" : "à préciser"}\nFin du bail : ${v("gfin") || "à préciser"}`;
   if (sel.value === "preavis") d = `\nDate de départ prévue : ${v("depart") || "à préciser"}`;
   const m = `Bonjour Vade Agency, espace locataire : ${titre}.\nNom : ${v("nom")}\nTéléphone : ${v("tel")}\nLogement : ${v("bien")}${d}${v("msg") ? "\nPrécisions : " + v("msg") : ""}`;
   vadeSend(m, document.getElementById("out"));
