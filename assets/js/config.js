@@ -20,3 +20,11 @@ window.vadeSend = function (message, outEl) {
 document.addEventListener("click", e => {
   document.querySelectorAll("details.menu[open]").forEach(d => { if (!d.contains(e.target)) d.open = false; });
 });
+
+// Charge l'assistante « Vade » sur toutes les pages qui utilisent ce fichier.
+(function () {
+  const me = document.currentScript; if (!me) return;
+  const s = document.createElement("script");
+  s.src = me.src.replace(/config\.js(\?.*)?$/, "vade-assistant.js"); s.defer = true;
+  document.head.appendChild(s);
+})();
