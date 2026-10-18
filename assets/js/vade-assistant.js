@@ -34,12 +34,12 @@
 
   const css = `
 .vade-fab{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:10px;border:0;background:#0f2347;color:#fff;border-radius:999px;padding:6px 16px 6px 6px;box-shadow:0 6px 20px rgba(10,20,40,.3);font:600 15px/1 "Montserrat",system-ui,sans-serif;cursor:pointer}
-.vade-fab img{width:44px;height:44px;border-radius:50%}
+.vade-fab img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #d6b25e}
 .vade-fab[hidden]{display:none}
 .vade-box{position:fixed;right:16px;bottom:16px;z-index:61;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100dvh - 32px));display:flex;flex-direction:column;background:var(--surface,#fff);color:var(--ink,#0f1f3d);border:1px solid var(--line,#e3ddcf);border-radius:16px;box-shadow:0 12px 40px rgba(10,20,40,.35);overflow:hidden;font-family:var(--body,system-ui,sans-serif)}
 .vade-box[hidden]{display:none}
 .vade-head{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#0f2347;color:#fff;border-bottom:3px solid #b8892d}
-.vade-head img{width:42px;height:42px;border-radius:50%}
+.vade-head img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #d6b25e}
 .vade-head b{display:block;font:600 16px/1.2 "Montserrat",system-ui,sans-serif}
 .vade-head span{font-size:13px;color:#d6dbe8}
 .vade-head .sp{flex:1}
@@ -65,7 +65,7 @@
     fab.innerHTML = `<img src="${avatar}" alt="">Une question ?`;
     const box = document.createElement("section");
     box.className = "vade-box"; box.hidden = true; box.setAttribute("aria-label", "Discussion avec Vade");
-    box.innerHTML = `<div class="vade-head"><img src="${avatar}" alt=""><div><b>Vade</b><span>Assistante Vade Agency</span></div><div class="sp"></div>
+    box.innerHTML = `<div class="vade-head"><img src="${avatar}" alt=""><div><b>Vade</b><span>Déborah · CEO Vade Agency</span></div><div class="sp"></div>
       <button type="button" class="vade-voice" aria-pressed="false" title="Lire les réponses à voix haute" aria-label="Lire les réponses à voix haute">🔈</button>
       <button type="button" class="vade-x" aria-label="Fermer">✕</button></div>
       <div class="vade-log" aria-live="polite"></div><div class="vade-chips"></div>
