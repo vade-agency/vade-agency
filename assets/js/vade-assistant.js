@@ -56,6 +56,7 @@
 .vade-in{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line,#e3ddcf)}
 .vade-in input{flex:1;min-width:0;font:16px/1.3 inherit;padding:10px 12px;border:1px solid var(--line,#e3ddcf);border-radius:10px;background:var(--bg,#f7f6f2);color:inherit}
 .vade-in button{border:0;background:#b8892d;color:#0a1428;border-radius:10px;padding:0 14px;font:600 14px/1 "Montserrat",system-ui,sans-serif;cursor:pointer}
+.vade-play{display:inline-flex;align-items:center;gap:6px;margin-top:8px;border:1px solid var(--gold,#b8892d);background:transparent;color:var(--ink,#0f1f3d);border-radius:999px;padding:6px 12px;font:600 13px/1 "Montserrat",system-ui,sans-serif;cursor:pointer}
 .vade-wa{display:block;text-align:center;padding:9px;font:600 14px/1.2 "Montserrat",system-ui,sans-serif;background:#1f8f4e;color:#fff;text-decoration:none}
 @media print{.vade-fab,.vade-box{display:none}}`;
 
@@ -83,7 +84,7 @@
     setVoice(voice);
     const speak = t => {
       if (!voice || !canSpeak) return;
-      speechSynthesis.cancel();
+      speechSynthesis.cancel(); hello.pause();
       const u = new SpeechSynthesisUtterance(t.replace(/\$/g, " dollars").replace(/m²/g, " mètre carré"));
       u.lang = "fr-FR"; u.rate = 1;
       const fr = speechSynthesis.getVoices().filter(v => v.lang.startsWith("fr"));
@@ -107,12 +108,17 @@
     };
     const chips = box.querySelector(".vade-chips");
     CHIPS.forEach(c => { const b = document.createElement("button"); b.type = "button"; b.textContent = c; b.onclick = () => ask(c); chips.appendChild(b); });
+    const hello = new Audio(root + ((window.VADE && window.VADE.hello) || "assets/audio/vade-accueil.mp3"));
+    hello.preload = "none";
+    const playHello = () => { if (canSpeak) speechSynthesis.cancel(); hello.currentTime = 0; hello.play().catch(() => {}); };
     let started = false;
     fab.onclick = () => {
       fab.hidden = true; box.hidden = false; input.focus({ preventScroll: true });
-      if (!started) { started = true; const g = "Bonjour, je suis Vade, l'assistante de Vade Agency. Je réponds à vos questions sur nos projets, la gestion locative et Vade Clean Up."; add(g); speak(g); }
+      if (!started) { started = true; const g = "Bonjour, je suis Vade, l'assistante de Vade Agency. Je réponds à vos questions sur nos projets, la gestion locative et Vade Clean Up."; add(g);
+        const pb = document.createElement("button"); pb.type = "button"; pb.className = "vade-play"; pb.textContent = "▶ Écouter Déborah"; pb.onclick = playHello;
+        log.lastChild.append(document.createElement("br"), pb); playHello(); }
     };
-    box.querySelector(".vade-x").onclick = () => { box.hidden = true; fab.hidden = false; if (canSpeak) speechSynthesis.cancel(); };
+    box.querySelector(".vade-x").onclick = () => { box.hidden = true; fab.hidden = false; hello.pause(); if (canSpeak) speechSynthesis.cancel(); };
     vbtn.onclick = () => setVoice(!voice);
     box.querySelector("form").onsubmit = e => { e.preventDefault(); ask(input.value); input.value = ""; };
     updateWa();

@@ -27,6 +27,6 @@ document.addEventListener("click", e => {
 (function () {
   const me = document.currentScript; if (!me) return;
   const s = document.createElement("script");
-  s.src = me.src.replace(/config\.js(\?.*)?$/, "vade-assistant.js?v=5"); s.defer = true;
+  s.src = me.src.replace(/config\.js(\?.*)?$/, "vade-assistant.js?v=6"); s.defer = true;
   document.head.appendChild(s);
 })();
