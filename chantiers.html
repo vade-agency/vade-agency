@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suivi de chantiers · Vade Agency</title>
+<meta name="description" content="Vidéos de suivi de chantier des projets immobiliers à Kinshasa : Time Tower et Sky 180 à la Gombe.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
+<style>
+.chantiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px}
+.chantier video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;display:block;background:#0b0f0d}
+.chantier ul{margin:4px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+.chantier .row{margin-top:auto;padding-top:8px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu is-current">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 449 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · meublé, dès 114 900 $</span></a>
+        <a href="chantiers.html"><b>Suivi de chantiers</b><span>Sky 180, Time Tower · vidéos sur place</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+        <a href="gestion-locative.html"><b>Gestion locative</b><span>Loyers, entretien et rapport mensuel</span></a>
+        <a href="espace-locataire.html"><b>Espace locataire</b><span>Loyer, panne, quittance, préavis</span></a>
+      </div>
+    </details>
+    <a href="clean-up.html">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Suivi de chantiers</div>
+    <h1>Les chantiers, <em>comme si vous y étiez</em></h1>
+    <p class="lead">Nous filmons les chantiers sur place pour que vous suiviez l'avancement depuis votre téléphone, à Kinshasa comme dans la diaspora.</p>
+  </section>
+
+  <section class="chantiers">
+    <article class="card chantier">
+      <video src="assets/chantiers/sky-180.mp4" poster="assets/chantiers/sky-180.jpg" controls playsinline preload="none" aria-label="Vidéo de l'état des lieux du chantier Sky 180"></video>
+      <span class="pill real">Chantier réel · Gombe</span>
+      <h3>Sky 180</h3>
+      <p>Appartements de luxe dans le quartier sécurisé de la Gombe. La structure de la tour est montée, la maçonnerie des niveaux est en cours.</p>
+      <ul><li>De 1 à 3 chambres, de 89 à 194 m²</li><li>Vue sur le fleuve ou sur la ville</li><li>Parking et club house</li><li>Livraison prévue dans 30 mois (état au 20 octobre 2026)</li></ul>
+      <div class="row"><a class="btn primary" href="#" data-wa="Bonjour Vade Agency, je souhaite des informations sur le projet Sky 180 à la Gombe.">Recevoir les informations</a></div>
+    </article>
+    <article class="card chantier">
+      <video src="assets/chantiers/time-tower.mp4" poster="assets/chantiers/time-tower.jpg" controls playsinline preload="none" aria-label="Vidéo du suivi de chantier Time Tower"></video>
+      <span class="pill real">Chantier réel · Bord du fleuve</span>
+      <h3>Time Tower</h3>
+      <p>Tour en construction au bord du fleuve. Le gros œuvre avance et le niveau suivant se prépare : nous suivons le chantier chaque semaine.</p>
+      <ul><li>Vidéo filmée sur place en octobre 2026</li></ul>
+      <div class="row"><a class="btn primary" href="#" data-wa="Bonjour Vade Agency, je souhaite des informations sur le projet Time Tower.">Recevoir les informations</a></div>
+    </article>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-c1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">Instagram @vadeagency_241192</a><a href="https://www.tiktok.com/@vade.agency">TikTok @vade.agency</a></div>
+</div></footer>
+
+<script src="assets/js/config.js?v=6"></script>
+<script>
+document.querySelectorAll("[data-wa]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); vadeSend(a.dataset.wa, null); }));
+</script>
+</body>
+</html>
