@@ -1,0 +1,47 @@
+// Pubs vidéo affichées sur la page videos.html, la plus récente en premier.
+// Pour ajouter une pub : déposer assets/pubs/<id>.mp4 et assets/pubs/<id>.jpg (affiche),
+// puis copier un bloc ci-dessous en haut de la liste.
+window.PUBS = [
+  {
+    id: "vivre-en-appartement",
+    titre: "Vivre en appartement",
+    accroche: "Sécurité, eau et électricité, propreté, parking, bon voisinage : ce qu'un cadre fermé apporte en plus de la chaleur de la cité.",
+    langue: "Français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « Vivre en appartement ». Je souhaite des informations sur vos appartements.",
+  },
+  {
+    id: "histoire-construction",
+    titre: "De 1960 à 2026, une ville se construit",
+    accroche: "Kinshasa grandit époque après époque, jusqu'aux projets qui dessinent la ville de demain : The King Tower et Modern Park.",
+    langue: "Français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « De 1960 à 2026 ». Je souhaite des informations sur The King Tower et Modern Park.",
+  },
+  {
+    id: "revons-grand",
+    titre: "Rêvons grand",
+    accroche: "Chaque soir, il regarde la ville changer. Rêver n'est pas interdit : construisons une ville où chaque enfant peut rêver grand.",
+    langue: "Français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « Rêvons grand ». Je souhaite des informations sur vos projets.",
+  },
+  {
+    id: "gombe-patrimoine",
+    titre: "Gombe ezo kende mbangu",
+    accroche: "Gombe avance vite : nous aussi, prenons notre place. Acheter à Gombe pour protéger son patrimoine et investir en sécurité.",
+    langue: "Lingala, sous-titré en français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « Gombe ezo kende mbangu ». Je souhaite investir à Gombe.",
+  },
+  {
+    id: "ebombeli",
+    titre: "Ebombeli mosolo malamu",
+    accroche: "Le bon endroit pour garder son argent, ce n'est pas seulement la banque : développons la culture de l'investissement immobilier.",
+    langue: "Lingala, sous-titré en français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « Ebombeli ». Je souhaite investir dans l'immobilier.",
+  },
+  {
+    id: "mbote-mokili",
+    titre: "Mbote Mokili",
+    accroche: "Du globe jusqu'à Kinshasa : The King Tower, Modern Park et Sky 180, les projets qui changent la ville. Kinshasa Ezo changé !",
+    langue: "Français et lingala",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « Mbote Mokili ». Je souhaite des informations sur vos projets.",
+  },
+];

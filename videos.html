@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nos vidéos · Vade Agency</title>
+<meta name="description" content="Les vidéos de Vade Agency : investir dans l'immobilier à Kinshasa, The King Tower, Modern Park, Gombe et la ville qui change.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
+<style>
+.pubs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:20px}
+.pub video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;display:block;background:#0f1f3d}
+.pub h2{font-size:20px;margin:4px 0 0}
+.pub .row{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:8px}
+.pub .row .btn{flex:1 1 auto;text-align:center}
+.pub:target{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/brand/vade-agency-logo.png" alt="Vade Agency : immobilier, courtage, conseil" width="360" height="318"></a>
+  <nav class="site-nav" aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <details class="menu">
+      <summary>Nos offres</summary>
+      <div class="menu-panel">
+        <a href="offres.html"><b>Toutes nos offres</b><span>Projets neufs, ventes et locations</span></a>
+        <a href="projets/cite-jardin/index.html"><b>La Cité-Jardin de Kinshasa</b><span>Projet neuf · visite guidée en ligne</span></a>
+        <a href="projets/king-tower/index.html"><b>The King Tower</b><span>Gombe, bord du fleuve · dès 449 000 $</span></a>
+        <a href="projets/modern-park/index.html"><b>Modern Park</b><span>Limete · meublé, dès 114 900 $</span></a>
+        <a href="chantiers.html"><b>Suivi de chantiers</b><span>Sky 180, Time Tower · vidéos sur place</span></a>
+        <a href="index.html#proprietaires"><b>Confier votre bien</b><span>Propriétaires : vente ou location</span></a>
+        <a href="gestion-locative.html"><b>Gestion locative</b><span>Loyers, entretien et rapport mensuel</span></a>
+        <a href="espace-locataire.html"><b>Espace locataire</b><span>Loyer, panne, quittance, préavis</span></a>
+      </div>
+    </details>
+    <a href="videos.html" aria-current="page">Vidéos</a>
+    <a href="clean-up.html">Vade Clean Up</a>
+    <a href="groupe.html">Groupe VADE</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Nos vidéos</div>
+    <h1>Kinshasa change, <em>regardez-la grandir</em></h1>
+    <p class="lead">Nos courtes vidéos pour comprendre l'immobilier à Kinshasa et découvrir nos projets. Une vidéo vous parle ? Écrivez-nous sur WhatsApp en un geste, ou partagez-la avec vos proches.</p>
+  </section>
+
+  <section class="pubs" id="pubs" aria-label="Vidéos"></section>
+  <p class="lead" style="margin-top:28px">Retrouvez une nouvelle vidéo chaque semaine sur <a href="https://www.tiktok.com/@vade.agency">TikTok @vade.agency</a> et <a href="https://www.instagram.com/vadeagency_241192/">Instagram @vadeagency_241192</a>.</p>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-group"><img src="assets/brand/vade-sarl-logo-c1.png" alt="Logo VADE SARL"><span>Vade Agency est une marque de <a href="groupe.html">VADE SARL</a></span></div>
+  <div class="foot-contacts"><span>Kinshasa, RDC</span><span>+243 813 281 077</span><span>vadeagencys9@gmail.com</span><a href="https://www.instagram.com/vadeagency_241192/">Instagram @vadeagency_241192</a><a href="https://www.tiktok.com/@vade.agency">TikTok @vade.agency</a></div>
+</div></footer>
+
+<script src="assets/js/config.js?v=6"></script>
+<script src="assets/js/pubs.js?v=1"></script>
+<script>
+(function () {
+  const list = document.getElementById("pubs");
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  list.innerHTML = window.PUBS.map(p => `
+    <article class="card pub" id="${esc(p.id)}">
+      <video src="assets/pubs/${esc(p.id)}.mp4" poster="assets/pubs/${esc(p.id)}.jpg" controls playsinline preload="none" aria-label="Vidéo ${esc(p.titre)}"></video>
+      <span class="pill">${esc(p.langue)}</span>
+      <h2>${esc(p.titre)}</h2>
+      <p>${esc(p.accroche)}</p>
+      <div class="row">
+        <a class="btn primary" href="#" data-wa="${esc(p.wa)}">Écrire sur WhatsApp</a>
+        <a class="btn" href="#${esc(p.id)}" data-share="${esc(p.id)}" data-title="${esc(p.titre)}">Partager</a>
+      </div>
+    </article>`).join("");
+  // Une seule vidéo joue à la fois.
+  const videos = list.querySelectorAll("video");
+  videos.forEach(v => v.addEventListener("play", () => videos.forEach(o => { if (o !== v) o.pause(); })));
+  list.addEventListener("click", async e => {
+    const wa = e.target.closest("[data-wa]");
+    if (wa) { e.preventDefault(); vadeSend(wa.dataset.wa, null); return; }
+    const sh = e.target.closest("[data-share]");
+    if (!sh) return;
+    e.preventDefault();
+    const url = location.href.split("#")[0] + "#" + sh.dataset.share;
+    const title = sh.dataset.title + " · Vade Agency";
+    if (navigator.share) { try { await navigator.share({ title, url }); } catch (err) {} return; }
+    window.open("https://wa.me/?text=" + encodeURIComponent(title + " " + url), "_blank", "noopener");
+  });
+  if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+})();
+</script>
+</body>
+</html>
