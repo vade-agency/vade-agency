@@ -3,6 +3,27 @@
 // puis copier un bloc ci-dessous en haut de la liste.
 window.PUBS = [
   {
+    id: "ou-que-vous-soyez",
+    titre: "Où que vous soyez",
+    accroche: "Investir à Kinshasa en toute confiance, même de loin : visitez en ligne ou en visio, réservez, puis suivez votre bien depuis votre téléphone.",
+    langue: "Français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « Où que vous soyez ». Je souhaite acheter à Kinshasa à distance.",
+  },
+  {
+    id: "gestion-locative",
+    titre: "Votre bien loué, sans souci",
+    accroche: "Propriétaires : nous trouvons le locataire, encaissons les loyers, entretenons le bien et vous envoyons un rapport chaque mois.",
+    langue: "Français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo sur la gestion locative. Je souhaite vous confier mon bien.",
+  },
+  {
+    id: "pret-a-vivre",
+    titre: "Prêt à vivre, avec Vade Clean Up",
+    accroche: "Après le chantier, place à l'éclat : fin de chantier, remise des clés, entre deux séjours ou entretien régulier, de 1 à 3 $ le m².",
+    langue: "Français",
+    wa: "Bonjour Vade Clean Up, j'ai vu votre vidéo « Prêt à vivre ». Je souhaite un devis de nettoyage.",
+  },
+  {
     id: "vivre-en-appartement",
     titre: "Vivre en appartement",
     accroche: "Sécurité, eau et électricité, propreté, parking, bon voisinage : ce qu'un cadre fermé apporte en plus de la chaleur de la cité.",
