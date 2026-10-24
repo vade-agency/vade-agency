@@ -3,6 +3,13 @@
 // puis copier un bloc ci-dessous en haut de la liste.
 window.PUBS = [
   {
+    id: "ndoto-ya-lelo",
+    titre: "Ndoto ya lelo",
+    accroche: "Quels rêves avez-vous faits aujourd'hui ? Nous, toujours les mêmes : The King Tower, Modern Park… Et vous, c'est quoi votre rêve du jour ?",
+    langue: "Lingala, sous-titré en français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « Ndoto ya lelo ». Moi aussi je rêve de The King Tower et Modern Park, je souhaite des informations.",
+  },
+  {
     id: "ou-que-vous-soyez",
     titre: "Où que vous soyez",
     accroche: "Investir à Kinshasa en toute confiance, même de loin : visitez en ligne ou en visio, réservez, puis suivez votre bien depuis votre téléphone.",
