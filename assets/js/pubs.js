@@ -3,6 +3,20 @@
 // puis copier un bloc ci-dessous en haut de la liste.
 window.PUBS = [
   {
+    id: "king-tower-1960",
+    titre: "King Tower, un saut dans le passé",
+    accroche: "Avenue Wagenia, au bord du fleuve : en 1960 le quartier s'appelait encore Kalina. 66 ans plus tard, une nouvelle page s'écrit au même endroit. Même adresse, nouvelle histoire.",
+    langue: "Français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo « King Tower, un saut dans le passé ». Je souhaite des informations sur The King Tower.",
+  },
+  {
+    id: "nouveau-client-cjk",
+    titre: "Nouveau client à la Cité-Jardin",
+    accroche: "Bonne nouvelle : un nouveau client vient de souscrire deux parterres à la Cité-Jardin. Merci pour votre confiance ! À qui le tour ?",
+    langue: "Français",
+    wa: "Bonjour Vade Agency, j'ai vu votre vidéo sur le nouveau client de la Cité-Jardin. Je souhaite des informations sur les parterres.",
+  },
+  {
     id: "ndoto-ya-lelo",
     titre: "Ndoto ya lelo",
     accroche: "Quels rêves avez-vous faits aujourd'hui ? Nous, toujours les mêmes : The King Tower, Modern Park… Et vous, c'est quoi votre rêve du jour ?",
